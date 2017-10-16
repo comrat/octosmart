@@ -1,0 +1,649 @@
+:const key_w	5
+:const key_a	7
+:const key_s	8
+:const key_d	9
+:const key_r	0x0D
+:const digit_x	9
+:const digit_y	26
+:const lives	5
+
+: main
+################ MENU ################
+	# Planet
+	i := let_p
+	va := 2
+	vb := 5
+	sprite va vb 12
+	i := let_l
+	va += 8
+	vb := 2
+	sprite va vb 12
+	i := let_a
+	va += 6
+	vb := 5
+	sprite va vb 9
+	i := let_n
+	va += 9
+	sprite va vb 9
+	i := let_e
+	va += 9
+	sprite va vb 9
+	i := let_t
+	va += 6
+	sprite va vb 9
+
+	# of the
+	i := small_let_of
+	va := 5
+	vb := 15
+	sprite va vb 5
+	i := small_let_th
+	va += 9
+	sprite va vb 5
+	i := small_let_e
+	va += 8
+	sprite va vb 5
+
+	# 8s
+	i := let_8
+	va += 3
+	sprite va vb 12
+	i := let_s
+	va += 9
+	vb := 18
+	sprite va vb 9
+
+	# 's' to start
+	i := small_let_s
+	va := 46
+	vb := 17
+	sprite va vb 4
+	i := small_let_quotes
+	va := 44
+	sprite va vb 1
+	i := small_let_t
+	va += 9
+	sprite va vb 4
+	i := small_let_o
+	va += 4
+	sprite va vb 4
+	i := small_let_s
+	va := 43
+	vb := 22
+	sprite va vb 4
+	i := small_let_t
+	va += 4
+	sprite va vb 4
+	i := small_let_a
+	va += 4
+	sprite va vb 4
+	i := small_let_r
+	va += 4
+	sprite va vb 4
+	i := small_let_t
+	va += 4
+	sprite va vb 4
+
+	# wasd
+	i := small_let_w
+	va := 5
+	vb := 22
+	sprite va vb 4
+	i := small_let_a
+	va := 1
+	vb := 27
+	sprite va vb 4
+	i := small_let_s
+	va += 5
+	sprite va vb 4
+	i := small_let_d
+	va += 5
+	sprite va vb 4
+
+	# flapping eight
+	v6 := 0
+	loop
+		v4 := 53
+		v5 := 3
+		if v6 == 0 begin
+			i := eight
+			v6 := 1
+		else
+			i := eight_flap
+			v6 := 0
+		end
+		sprite v4 v5 7
+
+		sync
+
+		sprite v4 v5 7
+
+		ve := key_s
+		if ve -key then
+	again
+
+################ GAME ################
+: game
+	clear
+
+	# Ground
+	i := ground
+	vc := 0
+	vd := 25
+	loop
+		sprite vc vd 7
+		vc += 8
+		if vc <= 56 then
+	again
+
+:alias 	health		v8
+
+	health := lives
+	i := hex health
+	v1 := digit_x
+	v2 := digit_y
+	sprite v1 v2 5	# Draw health
+
+	health := lives
+	i := balloon_hud
+	v1 := 2
+	v2 := 26
+	sprite v1 v2 5	# built in characters are 5 pixels tall
+
+:alias 	balloon_x	va
+:alias 	balloon_y	vb
+:alias 	cloud_x		vc
+:alias 	cloud_y		vd
+:alias 	enemy_x		v4
+:alias 	enemy_y		v5
+:alias 	score		v7
+
+	# Balloon
+	balloon_x := 28
+	balloon_y := 1
+	i := balloon
+	sprite balloon_x balloon_y 8
+
+	# Cloud
+	cloud_x := 1
+	cloud_y := 5
+	i := cloud
+	sprite vc vd 3
+
+	# Eight
+	enemy_x := 64
+	enemy_y := 10
+	i := eight
+	sprite enemy_x enemy_y 7
+
+	v6 := 1	# flap flag TODO: optimize
+	v9 := 0	# boom flag
+	score := 0 # reset score
+
+	draw_score
+
+	loop
+		if score == 255 then jump win
+
+
+		i := balloon
+		sprite balloon_x balloon_y 8
+
+		i := cloud
+		sprite cloud_x cloud_y 3
+
+		# Flap
+		if v6 == 1 begin
+			i := eight
+		else
+			i := eight_flap
+		end
+		sprite enemy_x enemy_y 7
+
+		if v9 == 1 begin
+			i := boom_sprite
+			sprite v1 v2 7
+			v9 := 0
+		end
+
+		if health == 0 then jump game_over
+
+		if vb <= 16 begin
+			balloon_y += 1	# Balloon down
+
+			# Move cloud
+			cloud_x += -1
+
+			# Move enemy
+			if enemy_x == 0 begin
+				enemy_x := 64
+				score_up
+			else
+				enemy_x += -2
+			end
+
+			# Move to balloon's y value
+			if balloon_y > enemy_y then enemy_y += 1
+			if balloon_y < enemy_y then enemy_y += -1
+
+			# Invert flap register value
+			if v6 == 1 begin
+				v6 := 0
+			else
+				v6 := 1
+			end
+
+			hit_test
+		else
+			jump game_over
+		end
+
+		# Move up
+		ve := key_w
+		if ve key begin
+			if balloon_y > 4 begin
+				balloon_y += -4
+			else
+				balloon_y := 0
+			end
+		end
+
+		# Move left
+		ve := key_a
+		if ve key begin
+			if balloon_x > 0 begin
+				balloon_x += -1
+			else
+				balloon_x := 0
+			end
+		end
+
+		# Move down
+		ve := key_s
+		if ve key begin
+			if balloon_y < 17 begin
+				balloon_y += 1
+			else
+				balloon_y := 17
+			end
+		end
+
+		# Move right
+		ve := key_d
+		if ve key begin
+			if balloon_x < 56 begin
+				balloon_x += 1
+			else
+				balloon_x := 56
+			end
+		end
+
+		# Clear displayed sprites
+		i := balloon
+		sprite balloon_x balloon_y 8
+
+		i := cloud
+		sprite cloud_x cloud_y 3
+
+		if v6 == 1 begin
+			i := eight
+		else
+			i := eight_flap
+		end
+		sprite enemy_x enemy_y 7
+
+		sync
+	again
+
+################ GAME OVER ################
+: win
+	ve := 5
+	buzzer := ve
+	clear
+
+	# 'win' label
+	i := let_w
+	v0 := 20
+	v1 := 6
+	sprite v0 v1 9
+	i := let_i
+	v0 += 9
+	sprite v0 v1 9
+	i := let_n
+	v0 += 4
+	sprite v0 v1 9
+
+	draw_restart
+
+	loop
+		ve := key
+		if ve == key_r then jump game
+	again
+;
+
+################ GAME OVER ################
+: game_over
+	ve := 5
+	buzzer := ve
+
+	clear
+
+	# 'game' label
+	i := let_g
+	v0 := 2
+	v1 := 2
+	sprite v0 v1 9
+	i := let_a
+	v0 += 9
+	sprite v0 v1 9
+	i := let_m
+	v0 += 9
+	sprite v0 v1 9
+	i := let_e
+	v0 += 9
+	sprite v0 v1 9
+
+	# 'over'
+	i := let_o
+	v0 := 2
+	v1 := 12
+	sprite v0 v1 9
+	i := let_v
+	v0 += 9
+	sprite v0 v1 9
+	i := let_e
+	v0 += 9
+	sprite v0 v1 9
+	i := let_r
+	v0 += 6
+	sprite v0 v1 9
+
+	draw_restart
+
+	# score
+	i := small_let_s
+	v0 := 40
+	v1 := 7
+	sprite v0 v1 4
+	i := small_let_c
+	v0 += 4
+	sprite v0 v1 4
+	i := small_let_o
+	v0 += 4
+	sprite v0 v1 4
+	i := small_let_r
+	v0 += 4
+	sprite v0 v1 4
+	i := small_let_e_2
+	v0 += 4
+	sprite v0 v1 4
+
+	# Draw score
+	i  := digits
+	bcd score
+	v3 := 43
+	v4 := 13
+	i := digits
+	load v2
+	i := hex v0
+	sprite v3 v4 5
+	v3 += +5
+	i := hex v1
+	sprite v3 v4 5
+	v3 += +5
+	i := hex v2
+	sprite v3 v4 5
+
+	loop
+		ve := key
+		if ve == key_r then jump game
+	again
+;
+
+
+: sync
+	loop
+		vf := delay
+		if vf != 0 then
+	again
+	vf := 10
+	delay := vf
+;
+
+
+: draw_restart
+	# 'r' to restart
+	i := small_let_quotes
+	v0 := 8
+	v1 := 25
+	sprite v0 v1 1
+	i := small_let_r
+	v0 += 2
+	sprite v0 v1 4
+	i := small_let_t
+	v0 += 8
+	sprite v0 v1 4
+	i := small_let_o
+	v0 += 4
+	sprite v0 v1 4
+	i := small_let_r
+	v0 += 6
+	sprite v0 v1 4
+	i := small_let_e_2
+	v0 += 4
+	sprite v0 v1 4
+	i := small_let_s
+	v0 += 4
+	sprite v0 v1 4
+	i := small_let_t
+	v0 += 4
+	sprite v0 v1 4
+	i := small_let_a
+	v0 += 4
+	sprite v0 v1 4
+	i := small_let_r
+	v0 += 4
+	sprite v0 v1 4
+	i := small_let_t
+	v0 += 4
+	sprite v0 v1 4
+;
+
+
+: draw_score
+	i  := digits
+	bcd score
+	v3 := 48
+	ve := 26
+	i := digits
+	load v2
+	i := hex v0
+	sprite v3 ve 5
+	v3 += +5
+	i := hex v1
+	sprite v3 ve 5
+	v3 += +5
+	i := hex v2
+	sprite v3 ve 5
+;
+
+
+: score_up
+	draw_score
+	score += 1
+	draw_score
+;
+
+
+: hit_test
+	v2 := balloon_x	# baloon's right border
+	v2 += 4
+	v3 := balloon_y	# baloon's bottom border
+	v3 += 5
+	v1 := enemy_x	# enemy left border
+	v1 += 6
+	v0 := enemy_y	# enemy bottom border
+	v0 += 6
+	if v2 > enemy_x begin
+	if v2 < v1 begin
+		if enemy_y >= balloon_y begin
+			if enemy_y <= v3 then boom
+		end
+		if v0 >= vb begin
+			if v0 <= v3 then boom
+		end
+	end
+	end
+;
+
+
+: boom
+	v1 := v4
+	v2 := v5
+	v1 += 3
+	v2 += 2
+	i := boom_sprite
+	sprite v1 v2 7
+
+	# Decrease live counter
+
+	i := hex health
+	v9 := digit_x
+	v4 := digit_y
+	sprite v9 v4 5
+
+	health += -1
+	i := hex health
+	sprite v9 v4 5
+
+	# Move enemy to the start position
+	v9 := 1
+	v4 := 56
+
+	ve := 5
+	buzzer := ve
+;
+
+################ DATA ################
+: balloon
+0x78 0xFC 0xFC 0xFC 0x84 0x48 0x30 0x30
+#0x3C 0x7E 0x7E 0x7E 0x42 0x24 0x18 0x18
+#0x00 0x00 0x00 0x00 0x00 0x00 0x00
+
+: ground
+0xFF 0xFF 0xFF 0xFF 0xFF 0xFF 0xFF
+
+: cloud
+0x30 0x7C 0xFF
+
+: eight
+0x18 0x24 0xA5 0x5A 0x24 0x24 0x18
+
+: eight_flap
+0x18 0x24 0x24 0x18 0x66 0xA5 0x18
+
+: boom_sprite
+0x10 0x54 0x38 0xFE 0x38 0x54 0x10
+
+: let_p
+0xF8 0xFC 0xCE 0xC6 0xC6 0xC6 0xCE 0xFC
+0xF8 0xC0 0xC0 0xC0 0x00 0x00 0x00
+
+: let_l
+0xC0 0xC0 0xC0 0xC0 0xC0 0xC0 0xC0 0xC0
+0xC0 0xC0 0xF8 0xF8 0x00 0x00 0x00
+
+: let_w
+0xC3 0xC3 0xC3 0xC3 0xC3 0xDB 0xFF 0x7E
+0x66
+
+: let_i
+0xC0 0xC0 0x00 0xC0 0xC0 0xC0 0xC0 0xC0
+0xC0
+
+: let_a
+0x18 0x3C 0x3C 0x66 0x66 0xC3 0xFF 0xFF
+0xC3 0x00 0x00 0x00 0x00 0x00 0x00
+
+: let_n
+0xE3 0xF3 0xF3 0xDB 0xDB 0xDB 0xCF 0xCF
+0xC7 0x00 0x00 0x00 0x00 0x00 0x00
+
+: let_e
+0xF8 0xF8 0xC0 0xC0 0xF8 0xC0 0xC0 0xF8
+0xF8 0x00 0x00 0x00 0x00 0x00 0x00
+
+: let_t
+0xFC 0xFC 0x30 0x30 0x30 0x30 0x30 0x30
+0x30 0x00 0x00 0x00 0x00 0x00 0x00
+
+: let_8
+0x7E 0xFF 0xC3 0x81 0xC3 0x7E 0xFF 0xC3
+0x81 0xC3 0xFF 0x7E
+
+: let_s
+0x7C 0xFC 0xE0 0xF0 0xF8 0x3C 0x1C 0xFC
+0xF8
+
+: small_let_of
+0xEE 0xA8 0xAC 0xA8 0xE8
+
+: small_let_th
+0xEA 0x4A 0x4E 0x4A 0x4A
+
+: small_let_e
+0xC0 0x80 0xC0 0x80 0xC0 0x00 0x00 0x00
+0x00 0x00 0x00 0x00 0x00 0x00 0x00
+
+: small_let_e_2
+0xE0 0xE0 0x80 0xE0
+
+: small_let_s
+0xE0 0xC0 0x60 0xE0
+
+: small_let_t
+0xE0 0x40 0x40 0x40
+
+: small_let_a
+0x40 0xA0 0xE0 0xA0
+
+: small_let_r
+0xC0 0xA0 0xC0 0xA0
+
+: small_let_p
+0xC0 0xA0 0xC0 0x80
+
+: small_let_c
+0xE0 0x80 0x80 0xE0
+
+: small_let_o
+0xE0 0xA0 0xA0 0xE0
+
+: small_let_w
+0x88 0xA8 0xA8 0x50
+
+: small_let_d
+0xC0 0xA0 0xA0 0xC0
+
+: small_let_quotes
+0x82
+
+: balloon_hud
+0x70 0xF8 0xF8 0x50 0x20
+
+: let_g
+0x7E 0xFF 0xE3 0xC3 0xC0 0xC7 0xE3 0xFF 0x7E
+
+: let_m
+0xC3 0xE7 0xFF 0xFF 0xDB 0xC3 0xC3 0xC3 0xC3
+
+: let_o
+0x7E 0xFF 0xE7 0xC3 0xC3 0xC3 0xE7 0xFF 0x7E
+
+: let_v
+0xC3 0xC3 0xC3 0xC3 0xC3 0xC3 0xE7 0x7E 0x3C
+
+: let_r
+0xFC 0xCE 0xC6 0xCE 0xFC 0xF8 0xDC 0xCE 0xC6
+
+: digits 0 0 0
