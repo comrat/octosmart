@@ -1,0 +1,10 @@
+{
+	"platforms": ["web"],
+	"properties": {
+		"title": "start",
+		"author": { "name": "Alexey Pobery", "email": "poberyaa@gmail.com", "site": "http://start.ru" },
+		"iconColor": "#232930",
+		"version": "1.0.0"
+	},
+	"templater": "jinja2"
+}
