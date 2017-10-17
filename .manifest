@@ -1,5 +1,5 @@
 {
-	"platforms": ["web"],
+	"platforms": ["web", "webos"],
 	"properties": {
 		"title": "start",
 		"author": { "name": "Alexey Pobery", "email": "poberyaa@gmail.com", "site": "http://start.ru" },
