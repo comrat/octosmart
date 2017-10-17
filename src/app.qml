@@ -1,7 +1,8 @@
-Item {
+Rectangle {
 	property bool dataReady;
 	property bool emulatorReady;
 	anchors.fill: context;
+	color: "#000";
 
 	Emulator {
 		anchors.centerIn: parent;
