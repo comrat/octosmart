@@ -241,37 +241,67 @@ function render() {
 	document.getElementById("emulator").style.backgroundColor = (emulator.st > 0) ? emulator.buzzColor : emulator.quietColor;
 }
 
+var emulatorKeyMap = {
+	'0': 88, // x (0)
+	'1': 49, // 1 (1)
+	'2': 50, // 2 (2)
+	'3': 51, // 3 (3)
+	'4': 81, // q (4)
+	'Up': 87, // w (5)
+	'e': 69, // e (6)
+	'Left': 65, // a (7)
+	'Down': 83, // s (8)
+	'Right': 68, // d (9)
+	'z': 90, // z (A)
+	'c': 67, // c (B)
+	'4': 52, // 4 (C)
+	'0': 82, // r (D)
+	'0': 70, // f (E)
+	'0': 86  // v (F)
+}
+
+function getPureQmlKey(keyCode) {
+	var codes = qml.core.keyCodes
+	var qmlKey
+
+	for (var i in codes)
+		if (i == keyCode) {
+			console.log("KEYPC", i, codes[i])
+			return emulatorKeyMap[codes[i]]
+		}
+	return qmlKey
+}
+
 function keyDown(event) {
 	if (!(event.keyCode in emulator.keys)) {
-		emulator.keys[event.keyCode] = true;
-		if (event.keyCode in keymapInverse) {
-			// add an "active" class to the current button
+		var keyCode = getPureQmlKey(event.keyCode) || event.keyCode
+
+		emulator.keys[keyCode] = true;
+		if (keyCode in keymapInverse) {
 			var keyElement = document.getElementById(
-				'0x' + keymapInverse[event.keyCode].toString(16).toUpperCase()
+				'0x' + keymapInverse[keyCode].toString(16).toUpperCase()
 			);
-			if (!(keyElement.className.match(/active/))) {
-				keyElement.className += ' active';
-			}
 		}
 	}
 }
 
 function keyUp(event) {
-	if (event.keyCode in emulator.keys) {
-		delete emulator.keys[event.keyCode];
-		if (event.keyCode in keymapInverse) {
+	var keyCode = getPureQmlKey(event.keyCode) || event.keyCode
+
+	if (keyCode in emulator.keys) {
+		delete emulator.keys[keyCode];
+		if (keyCode in keymapInverse) {
 			var keyElement = document.getElementById(
-				'0x' + keymapInverse[event.keyCode].toString(16).toUpperCase()
+				'0x' + keymapInverse[keyCode].toString(16).toUpperCase()
 			);
-			keyElement.className = keyElement.className.replace('active', '');
 		}
 	}
 
 	// Reset emulator
-	if (event.keyCode == 27) { reset(); }
+	if (keyCode == 27) { reset(); }
 
 	// Halt / Continue
-	if (event.keyCode == 73) { // i
+	if (keyCode == 73) { // i
 		if (emulator.breakpoint) {
 			clearBreakpoint();
 		}
@@ -281,7 +311,7 @@ function keyUp(event) {
 	}
 
 	// Single Step
-	if (event.keyCode == 79) { // o
+	if (keyCode == 79) { // o
 		if (emulator.breakpoint) {
 			emulator.tick();
 			renderDisplay(emulator);
@@ -292,7 +322,7 @@ function keyUp(event) {
 	// Step Out - Sets a breakpoint that will trigger when there is one less address
 	// on the stack (that is when the current subroutine returns). The current
 	// breakpoint is cleared and execution is resumed.
-	if (event.keyCode == 85) { // u
+	if (keyCode == 85) { // u
 		if (emulator.breakpoint) {
 			var stacklen = emulator.r.length;
 			if(stacklen > 0) {
@@ -305,7 +335,7 @@ function keyUp(event) {
 	// Step Over - Same as single-step unless the current instruction is a call.
 	// In that case, a stack breakpoint is set for the current stack level and
 	// execution is resumed
-	if (event.keyCode == 76) { // l
+	if (keyCode == 76) { // l
 		if (emulator.breakpoint) {
 
 			if ((emulator.m[emulator.pc] & 0xF0) == 0x20) {
@@ -324,12 +354,13 @@ function keyUp(event) {
 	}
 
 	// Display Profiler
-	if (event.keyCode == 80) { // p
+	if (keyCode == 80) { // p
 		haltProfiler("profiler");
 	}
+
 	if (emulator.waiting) {
 		for(var z = 0; z < 16; z++) {
-			if (keymap[z] == event.keyCode) {
+			if (keymap[z] == keyCode) {
 				emulator.waiting = false;
 				emulator.v[emulator.waitReg] = z;
 				return;
