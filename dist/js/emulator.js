@@ -1,5 +1,3 @@
-"use strict";
-
 var keymap = [
 	// chip8    // keyboard
 	/* 0 */ 88, // x

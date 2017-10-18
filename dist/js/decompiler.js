@@ -7,8 +7,6 @@
 //
 ////////////////////////////////////
 
-"use strict";
-
 var LOAD_STORE_QUIRKS = false; // ignore i increment with loads
 var SHIFT_QUIRKS      = false; // shift vx in place, ignore vy
 var VF_ORDER_QUIRKS   = false; // arithmetic results write to vf after status flag
@@ -584,7 +582,7 @@ function analyzeInit(rom, quirks) {
 	SHIFT_QUIRKS      = quirks['shiftQuirks']     | false;
 	LOAD_STORE_QUIRKS = quirks['loadStoreQuirks'] | false;
 	VF_ORDER_QUIRKS   = quirks['vfOrderQuirks']   | false;
-	
+
 	reaching[0x200] = {};
 	for(var z = 0; z < regNames.length; z++) {
 		reaching[0x200][regNames[z]] = { 0:true };
@@ -632,10 +630,10 @@ function analyzeWork() {
 
 		var isReturn = (program[child] == 0x00 && program[child+1] == 0xEE);
 
-		if (child == here && isReturn) { 
+		if (child == here && isReturn) {
 			continue;
 		}
-	
+
 		if ((typeof reaching[child]) == "undefined") {
 			// always explore fresh nodes:
 			reaching[child] = copyReachingSet(output);
