@@ -4,12 +4,18 @@ Rectangle {
 	anchors.fill: context;
 	color: "#000";
 
-	Emulator {
-		anchors.centerIn: parent;
+	PageStack {
+		width: 100%;
+		height: 100%;
 
-		onReady: {
-			this.parent.emulatorReady = true
-			this.parent.rebuild()
+		StartMenu {
+
+		}
+
+		Emulator {
+			anchors.centerIn: parent;
+
+			onReady: { this.parent.emulatorReady = true }
 		}
 	}
 
@@ -25,7 +31,8 @@ Rectangle {
 	}
 
 	rebuild: {
-		if (this.dataReady && this.emulatorReady)
-			window.run(resource.data)
+		//TODO: get data from delected game
+		/* if (this.dataReady && this.emulatorReady) */
+		/* 	window.run(resource.data) */
 	}
 }
