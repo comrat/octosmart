@@ -1,7 +1,7 @@
 {
 	"platforms": ["web", "webos"],
 	"properties": {
-		"title": "start",
+		"title": "octosmart",
 		"author": { "name": "Alexey Pobery", "email": "poberyaa@gmail.com", "site": "http://start.ru" },
 		"iconColor": "#232930",
 		"version": "1.0.0"
