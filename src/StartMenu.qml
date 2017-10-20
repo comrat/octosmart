@@ -1,4 +1,5 @@
 Item {
+	signal selected;
 	width: 100%;
 	height: 100%;
 
@@ -36,8 +37,9 @@ Item {
 
 		chooseCurrent: { info.fill(this.model.get(this.currentIndex)) }
 
-		onActiveFocusChanged: { if (value) this.chooseCurrent() }
 		onCurrentIndexChanged: { this.chooseCurrent() }
+		onActiveFocusChanged: { if (value) this.chooseCurrent() }
+		onSelectPressed: { this.parent.selected(this.model.get(this.currentIndex)) }
 	}
 
 	AppDescription {

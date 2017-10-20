@@ -17,6 +17,8 @@ Item {
 		onCompleted: { this.element.dom.className = "canv" }
 	}
 
+	run(data): { window.run(resource.data) }
+
 	onCompleted: {
 		/* var canvas = this._context.createElement('canvas') */
 		/* canvas.dom.setAttribute("style", "position: absolute; visibility: inherit;") */

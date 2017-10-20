@@ -1,6 +1,4 @@
 Rectangle {
-	property bool dataReady;
-	property bool emulatorReady;
 	anchors.fill: context;
 	color: "#000";
 
@@ -9,10 +7,15 @@ Rectangle {
 		height: 100%;
 
 		StartMenu {
-
+			onSelected(app): {
+				log("Run app", app.title)
+				this.parent.currentIndex = 1
+				resource.url = app.file
+			}
 		}
 
 		Emulator {
+			id: emulator;
 			anchors.centerIn: parent;
 
 			onReady: { this.parent.emulatorReady = true }
@@ -21,18 +24,7 @@ Rectangle {
 
 	Resource {
 		id: resource;
-		url: "examples/planet.8o";
 
-		onDataChanged: {
-			log("datachanged")
-			this.parent.dataReady = true
-			this.parent.rebuild()
-		}
-	}
-
-	rebuild: {
-		//TODO: get data from delected game
-		/* if (this.dataReady && this.emulatorReady) */
-		/* 	window.run(resource.data) */
+		onDataChanged: { emulator.run(value) }
 	}
 }
