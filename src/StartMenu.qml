@@ -18,15 +18,16 @@ Item {
 		delegate: WebItem {
 			width: 100%;
 			height: 50;
-			color: activeFocus ? "#212121" : "#0000";
+			border.width: activeFocus ? 2 : 0;
+			border.color: "#ff83ff";
 
 			FocusOnHoverMixin { }
 
 			Text {
-				x: 10;
 				width: 100%;
 				height: 100%;
 				verticalAlignment: Text.AlignVCenter;
+				horizontalAlignment: Text.AlignHCenter;
 				text: model.title;
 				color: "#0ff";
 				font.pixelSize: 27;
@@ -48,29 +49,61 @@ Item {
 	onActiveFocusChanged: { if (value) gameList.setFocus() }
 
 	onCompleted: {
-		var data = [{
-			"title" : "Planet of the Eights",
-			"description" : "The last 32-bit register is trying to survive on the terrible planet of the Eights using air balloon.",
-			"screenshot": "examples/planet_of_the_eights/planet.png",
-			"file": "examples/planet_of_the_eights/planet.8o",
-			"options": {
-				//TODO: fill actual values
-				"tickrate": 1000,
-				"fillColor": "#000000",
-				"fillColor2": "#000000",
-				"blendColor": "#000000",
-				"backgroundColor": "#000000",
-				"buzzColor": "#000000",
-				"quietColor": "#000000",
-				/* "shiftQuirks": emulator.shiftQuirks, */
-				/* "loadStoreQuirks": emulator.loadStoreQuirks, */
-				/* "vfOrderQuirks": emulator.vfOrderQuirks, */
-				/* "clipQuirks": emulator.clipQuirks, */
-				/* "jumpQuirks": emulator.jumpQuirks, */
-				/* "screenRotation": emulator.screenRotation, */
-				"enableXO": false
+		var data = [
+			{
+				"title" : "Planet of the Eights",
+				"description" : "The last 32-bit register is trying to survive on the terrible planet of the Eights using air balloon.",
+				"screenshot": "examples/planet_of_the_eights/planet.png",
+				"file": "examples/planet_of_the_eights/planet.8o",
+				"options": {
+					//TODO: fill actual values
+					"tickrate": 1000,
+					"fillColor": "#000000",
+					"fillColor2": "#000000",
+					"blendColor": "#000000",
+					"backgroundColor": "#000000",
+					"buzzColor": "#000000",
+					"quietColor": "#000000",
+					/* "shiftQuirks": emulator.shiftQuirks, */
+					/* "loadStoreQuirks": emulator.loadStoreQuirks, */
+					/* "vfOrderQuirks": emulator.vfOrderQuirks, */
+					/* "clipQuirks": emulator.clipQuirks, */
+					/* "jumpQuirks": emulator.jumpQuirks, */
+					/* "screenRotation": emulator.screenRotation, */
+					"enableXO": false
+				}
+			}, {
+				"title" : "Kesha was bird",
+				"description" : "",
+				"screenshot": "examples/kesha_was_bird/logo.png",
+				"file": "examples/kesha_was_bird/kesha1.8o",
+				"options": {
+					"tickrate": 1000,
+					"fillColor": "#000000",
+					"fillColor2": "#000000",
+					"blendColor": "#000000",
+					"backgroundColor": "#000000",
+					"buzzColor": "#000000",
+					"quietColor": "#000000",
+					"enableXO": true
+				}
+			}, {
+				"title" : "Kesha was biird",
+				"description" : "",
+				"screenshot": "examples/kesha_was_biird/logo.png",
+				"file": "examples/kesha_was_biird/kesha2.8o",
+				"options": {
+					"tickrate": 1000,
+					"fillColor": "#000000",
+					"fillColor2": "#000000",
+					"blendColor": "#000000",
+					"backgroundColor": "#000000",
+					"buzzColor": "#000000",
+					"quietColor": "#000000",
+					"enableXO": true
+				}
 			}
-		}]
+		]
 
 		gameList.model.clear()
 		gameList.model.append(data)
