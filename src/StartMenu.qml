@@ -2,10 +2,16 @@ Item {
 	width: 100%;
 	height: 100%;
 
+	Image {
+		y: 2.5%;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		source: "res/logo.png";
+	}
+
 	ListView {
 		id: gameList;
 		x: 10%;
-		y: 10%;
+		y: 20%;
 		width: 30%;
 		height: 80%;
 		model: ListModel { }
@@ -33,32 +39,10 @@ Item {
 		onCurrentIndexChanged: { this.chooseCurrent() }
 	}
 
-	Column {
+	AppDescription {
 		id: info;
 		x: 50%;
-		y: 10%;
-		width: 40%;
-		spacing: 10;
-
-		Image {
-			id: screenshot;
-			width: 100%;
-			fillMode: Image.PreserveAspectFit;
-		}
-
-		Text {
-			id: description;
-			x: 10%;
-			width: 80%;
-			wrapMode: Text.WordWrap;
-			font.pixelSize: 24;
-			color: "#fff";
-		}
-
-		fill(data): {
-			screenshot.source = data.screenshot
-			description.text = data.description
-		}
+		y: 20%;
 	}
 
 	onActiveFocusChanged: { if (value) gameList.setFocus() }
