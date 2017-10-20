@@ -76,7 +76,7 @@ Item {
 				}
 			}, {
 				"title" : "Kesha was bird",
-				"description" : "",
+				"description" : "This game contains your daily doze of chill and no action at all. Written for CHIP8, stunningly beautiful in its 4-colour palette. Adding in a bit of gore with fine finish of 1-pixel erotic.",
 				"screenshot": "examples/kesha_was_bird/logo.png",
 				"file": "examples/kesha_was_bird/kesha1.8o",
 				"options": {
@@ -91,7 +91,7 @@ Item {
 				}
 			}, {
 				"title" : "Kesha was biird",
-				"description" : "",
+				"description" : "You may want to play the first part to have better understanding what's going on there. Or not.",
 				"screenshot": "examples/kesha_was_biird/logo.png",
 				"file": "examples/kesha_was_biird/kesha2.8o",
 				"options": {
