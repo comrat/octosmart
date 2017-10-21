@@ -1,5 +1,4 @@
 Item {
-	signal ready;
 	width: 1280;
 	height: 640;
 
@@ -19,22 +18,5 @@ Item {
 
 	run(data): { window.run(resource.data) }
 
-	onCompleted: {
-		/* var canvas = this._context.createElement('canvas') */
-		/* canvas.dom.setAttribute("style", "position: absolute; visibility: inherit;") */
-		/* canvas.dom.setAttribute("id", "target") */
-		/* canvas.dom.setAttribute("width", "100%") */
-		/* canvas.dom.setAttribute("height", "100%") */
-		/* console.log("CAN", canvas) */
-
-		/* var divElement = this._context.createElement('div') */
-		/* divElement.dom.setAttribute("width", "100%") */
-		/* divElement.dom.setAttribute("height", "100%") */
-		/* divElement.append(canvas) */
-
-		this.element.dom.setAttribute("id", "emulator")
-		/* this.element.append(divElement) */
-		/* this.element.append(canvas) */
-		this.ready()
-	}
+	onCompleted: { this.element.dom.setAttribute("id", "emulator") }
 }

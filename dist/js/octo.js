@@ -263,10 +263,8 @@ function getPureQmlKey(keyCode) {
 	var qmlKey
 
 	for (var i in codes)
-		if (i == keyCode) {
-			console.log("KEYPC", i, codes[i])
+		if (i == keyCode)
 			return emulatorKeyMap[codes[i]]
-		}
 	return qmlKey
 }
 

@@ -5,6 +5,7 @@ Column {
 	Image {
 		id: screenshot;
 		width: 100%;
+		height: width / 2;
 	}
 
 	Text {

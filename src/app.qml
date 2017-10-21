@@ -17,8 +17,6 @@ Rectangle {
 		Emulator {
 			id: emulator;
 			anchors.centerIn: parent;
-
-			onReady: { this.parent.emulatorReady = true }
 		}
 	}
 
