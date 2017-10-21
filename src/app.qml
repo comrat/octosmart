@@ -10,13 +10,20 @@ Rectangle {
 			onSelected(app): {
 				log("Run app", app.title)
 				this.parent.currentIndex = 1
-				resource.url = app.file
+				emulator.loadApp(app)
 			}
 		}
 
 		Emulator {
 			id: emulator;
 			anchors.centerIn: parent;
+
+			run(data): { this.runImpl(data, this._selectedApp.options) }
+
+			loadApp(app): {
+				resource.url = app.file
+				this._selectedApp = app
+			}
 		}
 	}
 

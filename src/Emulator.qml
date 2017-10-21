@@ -16,7 +16,7 @@ Item {
 		onCompleted: { this.element.dom.className = "canv" }
 	}
 
-	run(data): { window.run(resource.data) }
+	runImpl(data, options): { window.runWithOptions(resource.data, options) }
 
 	onCompleted: { this.element.dom.setAttribute("id", "emulator") }
 }

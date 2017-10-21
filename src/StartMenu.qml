@@ -58,20 +58,19 @@ Item {
 				"screenshot": "examples/planet_of_the_eights/planet.png",
 				"file": "examples/planet_of_the_eights/planet.8o",
 				"options": {
-					//TODO: fill actual values
-					"tickrate": 1000,
-					"fillColor": "#000000",
-					"fillColor2": "#000000",
+					"tickrate": 200,
+					"fillColor": "#FF00FF",
+					"fillColor2": "#00FFFF",
 					"blendColor": "#000000",
-					"backgroundColor": "#000000",
-					"buzzColor": "#000000",
-					"quietColor": "#000000",
-					/* "shiftQuirks": emulator.shiftQuirks, */
-					/* "loadStoreQuirks": emulator.loadStoreQuirks, */
-					/* "vfOrderQuirks": emulator.vfOrderQuirks, */
-					/* "clipQuirks": emulator.clipQuirks, */
-					/* "jumpQuirks": emulator.jumpQuirks, */
-					/* "screenRotation": emulator.screenRotation, */
+					"backgroundColor": "#00FFFF",
+					"buzzColor": "#990099",
+					"quietColor": "#330033",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
 					"enableXO": false
 				}
 			}, {
@@ -80,6 +79,7 @@ Item {
 				"screenshot": "examples/kesha_was_bird/logo.png",
 				"file": "examples/kesha_was_bird/kesha1.8o",
 				"options": {
+					//TODO: fill actual values
 					"tickrate": 1000,
 					"fillColor": "#000000",
 					"fillColor2": "#000000",
@@ -87,6 +87,12 @@ Item {
 					"backgroundColor": "#000000",
 					"buzzColor": "#000000",
 					"quietColor": "#000000",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
 					"enableXO": true
 				}
 			}, {
@@ -102,6 +108,12 @@ Item {
 					"backgroundColor": "#000000",
 					"buzzColor": "#000000",
 					"quietColor": "#000000",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
 					"enableXO": true
 				}
 			}

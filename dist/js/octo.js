@@ -186,6 +186,16 @@ function share() {
 	}));
 }
 
+function runWithOptions(data, options) {
+	emulator.tickrate = options.tickrate;;
+	unpackOptions(emulator, options);
+	if (emulator.enableXO) {
+		document.getElementById("enableXO").checked = true;
+		setEnableXO();
+	}
+	run(data);
+}
+
 function runGist() {
 	var xhr = new XMLHttpRequest();
 	var gistId = location.search.match(/gist=(\w+)/);
