@@ -6,5 +6,10 @@
 		"iconColor": "#232930",
 		"version": "1.0.0"
 	},
+	"properties.style.font": {
+		"family": "VT323",
+		"pixelSize": 20,
+		"lineHeight": 1.2
+	},
 	"templater": "jinja2"
 }
