@@ -68,17 +68,11 @@ function run(data) {
 }
 
 function compile(data) {
-	var input  = data ? data : document.getElementById("input");
-	// var output = document.getElementById("output");
-	// var status = document.getElementById("status");
-
 	var MAX_ROM = 3584;
 	if (emulator.enableXO) { MAX_ROM = 65536 - 512; }
 
 	var c = new Compiler(data);
 	try {
-		// output.value = "";
-		// output.style.display = "none";
 		c.go();
 		if (c.xo && (!emulator.enableXO)) {
 			throw "Rom makes use of XO-Chip extensions. They must be enabled in the Options panel.";
@@ -86,21 +80,8 @@ function compile(data) {
 		if (c.rom.length > MAX_ROM) {
 			throw "Rom is too large- " + (c.rom.length-MAX_ROM) + " bytes over!";
 		}
-		// output.value = display(c.rom);
-		// output.style.display = "inline";
-		// status.innerHTML = ((c.rom.length) + " bytes, " + (MAX_ROM-c.rom.length) + " free.");
-		// status.style.backgroundColor = "black";
-		// if (c.schip) { status.innerHTML += " (SuperChip instructions used)"; }
-		// if (c.xo) { status.innerHTML += " (XO-Chip instructions used)"; }
-	}
-	catch(error) {
-		// status.style.backgroundColor = "darkred";
-		// status.innerHTML = error;
-		if (c.pos != null) {
-			input.focus();
-			input.selectionStart = c.pos[1]-1;
-			input.selectionEnd   = c.pos[2]-1;
-		}
+	} catch(error) {
+		console.log(error)
 		return null;
 	}
 
@@ -189,10 +170,8 @@ function share() {
 function runWithOptions(data, options) {
 	emulator.tickrate = options.tickrate;;
 	unpackOptions(emulator, options);
-	if (emulator.enableXO) {
-		document.getElementById("enableXO").checked = true;
-		setEnableXO();
-	}
+	if (emulator.enableXO)
+		setEnableXO(emulator.enableXO);
 	run(data);
 }
 
@@ -212,8 +191,7 @@ function runGist() {
 			emulator.tickrate = (framerateEl.value == "") ? framerateNum : framerateEl.value;
 			unpackOptions(emulator, options);
 			if (emulator.enableXO) {
-				document.getElementById("enableXO").checked = true;
-				setEnableXO();
+				setEnableXO(true);
 			}
 			run();
 		}
@@ -494,10 +472,9 @@ function setQuirks(flag) {
 	emulator[flag] = document.getElementById(flag).checked;
 }
 
-function setEnableXO() {
-	var check = document.getElementById("enableXO");
-	emulator.enableXO = check.checked;
-	if (check.checked) {
+function setEnableXO(check) {
+	emulator.enableXO = check;
+	if (check) {
 		var features = document.getElementsByClassName("xofeature");
 		for(var z = 0; z < features.length; z++) {
 			var feature = features[z];
