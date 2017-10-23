@@ -115,6 +115,28 @@ Item {
 					"screenRotation": false,
 					"enableXO": true
 				}
+			}, {
+				"title" : "Skyward",
+				"description" : "",
+				"screenshot": "examples/skyward/logo.png",
+				"file": "examples/skyward/skyward.8o",
+				"authors": ["jackiekircher", "Tann"],
+				"options": {
+					"tickrate": 1000,
+					"fillColor": "#4b636f",
+					"fillColor2": "#af2d3d",
+					"blendColor": "#af2d3d",
+					"backgroundColor": "#121212",
+					"buzzColor": "#000000",
+					"quietColor": "#000000",
+					"shiftQuirks": false,
+					"loadStoreQuirks": true,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": true
+				}
 			}
 		]
 
