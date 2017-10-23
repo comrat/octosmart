@@ -57,6 +57,7 @@ Item {
 				"description" : "The last 32-bit register is trying to survive on the terrible planet of the Eights using air balloon.",
 				"screenshot": "examples/planet_of_the_eights/planet.png",
 				"file": "examples/planet_of_the_eights/planet.8o",
+				"authors": ["comrat"],
 				"options": {
 					"tickrate": 200,
 					"fillColor": "#FF00FF",
@@ -78,6 +79,7 @@ Item {
 				"description" : "This game contains your daily doze of chill and no action at all. Written for CHIP8, stunningly beautiful in its 4-colour palette. Adding in a bit of gore with fine finish of 1-pixel erotic.",
 				"screenshot": "examples/kesha_was_bird/logo.png",
 				"file": "examples/kesha_was_bird/kesha1.8o",
+				"authors": ["whoozle", "gazay"],
 				"options": {
 					"tickrate": 1000,
 					"fillColor": "#B8CD9E",
@@ -99,6 +101,7 @@ Item {
 				"description" : "You may want to play the first part to have better understanding what's going on there. Or not.",
 				"screenshot": "examples/kesha_was_biird/logo.png",
 				"file": "examples/kesha_was_biird/kesha2.8o",
+				"authors": ["whoozle", "gazay"],
 				"options": {
 					"tickrate": 1000,
 					"fillColor": "#1a1c19",
@@ -117,7 +120,7 @@ Item {
 				}
 			}, {
 				"title" : "Skyward",
-				"description" : "",
+				"description" : "All of her life Amy has lived in the darkness, in the safety of the caverns her village has called home. Legends tell of a crystal above that will grant anyone a single wish, but no one has seen the sky in the generations. Enraptured by these tales, she packs for a journey to see for herself if these stories are true. Armed with only a few spears and rations for the climb, she sets off skyward to create a legend of her own...",
 				"screenshot": "examples/skyward/logo.png",
 				"file": "examples/skyward/skyward.8o",
 				"authors": ["jackiekircher", "Tann"],
