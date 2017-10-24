@@ -2,6 +2,13 @@ Rectangle {
 	anchors.fill: context;
 	color: "#000";
 
+	Rectangle {
+		width: 1280;
+		height: 720;
+		border.color: "#f00";
+		border.width:2;
+	}
+
 	PageStack {
 		width: 100%;
 		height: 100%;
@@ -14,15 +21,27 @@ Rectangle {
 			}
 		}
 
-		Emulator {
-			id: emulator;
-			anchors.centerIn: parent;
+		Item {
+			width: 100%;
+			height: 100%;
 
-			run(data): { this.runImpl(data, this._selectedApp.options) }
+			Emulator {
+				id: emulator;
+				anchors.top: parent.top;
+				anchors.horizontalCenter: parent.horizontalCenter;
+				anchors.topMargin: 40;
 
-			loadApp(app): {
-				resource.url = app.file
-				this._selectedApp = app
+				run(data): { this.runImpl(data, this._selectedApp.options) }
+
+				loadApp(app): {
+					resource.url = app.file
+					this._selectedApp = app
+				}
+			}
+
+			KeyGrid {
+				y: 540;
+				anchors.horizontalCenter: parent.horizontalCenter;
 			}
 		}
 	}

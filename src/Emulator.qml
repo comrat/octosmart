@@ -1,6 +1,6 @@
 Item {
-	width: 1280;
-	height: 640;
+	width: 960;
+	height: 480;
 
 	Item {
 		width: 100%;
