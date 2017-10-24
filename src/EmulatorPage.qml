@@ -11,6 +11,8 @@ Item {
 		run(data): { this.runImpl(data, this.parent._selectedApp.options) }
 	}
 
+	EmulatorControls { }
+
 	KeyGrid {
 		y: 540;
 		anchors.horizontalCenter: parent.horizontalCenter;
