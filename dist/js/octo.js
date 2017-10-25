@@ -955,10 +955,6 @@ function haltProfiler(breakName) {
 
 
 function clearBreakpoint() {
-	var button = document.getElementById("continueButton");
-	var regs   = document.getElementById("registerView");
-	button.style.display = "none";
-	regs.style.display = "none";
 	emulator.breakpoint = false;
 	curBreakName = undefined;
 }

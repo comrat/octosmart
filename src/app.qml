@@ -16,6 +16,10 @@ Rectangle {
 			}
 		}
 
-		EmulatorPage { id: emulatorPage; }
+		EmulatorPage {
+			id: emulatorPage;
+
+			onBackPressed: { this.parent.currentIndex = 0 }
+		}
 	}
 }
