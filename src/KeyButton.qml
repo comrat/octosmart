@@ -1,7 +1,6 @@
 WebItem {
-	property string key;
-	width: 40;
-	height: width;
+	width: parent.cellWidth;
+	height: parent.cellHeight;
 	color: colorTheme.panelColor;
 	border.color: colorTheme.accentPanelColor;
 	border.width: hover ? 2 : 0;
@@ -11,7 +10,7 @@ WebItem {
 		height: 100%;
 		verticalAlignment: Text.AlignVCenter;
 		horizontalAlignment: Text.AlignHCenter;
-		text: parent.key;
+		text: model.key;
 		color: "#0ff";
 		font.pixelSize: 25;
 	}
