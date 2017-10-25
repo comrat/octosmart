@@ -16,7 +16,7 @@ Column {
 		Text {
 			font.pixelSize: 24;
 			text: "Created by:";
-			color: "#00FFFF";
+			color: colorTheme.accentTextColor;
 			visible: createdText.text;
 		}
 
@@ -25,7 +25,7 @@ Column {
 			property string authors;
 			font.pixelSize: 24;
 			text: authors;
-			color: "#fff";
+			color: colorTheme.textColor;
 		}
 	}
 
@@ -34,7 +34,7 @@ Column {
 		width: 100%;
 		wrapMode: Text.WordWrap;
 		font.pixelSize: 24;
-		color: "#aaa";
+		color: colorTheme.passiveTextColor;
 	}
 
 	fill(data): {

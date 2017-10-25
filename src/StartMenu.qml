@@ -20,7 +20,7 @@ Item {
 			width: 100%;
 			height: 50;
 			border.width: activeFocus ? 2 : 0;
-			border.color: "#ff83ff";
+			border.color: colorTheme.accentPanelColor;
 
 			FocusOnHoverMixin { }
 
@@ -30,7 +30,7 @@ Item {
 				verticalAlignment: Text.AlignVCenter;
 				horizontalAlignment: Text.AlignHCenter;
 				text: model.title;
-				color: "#0ff";
+				color: colorTheme.accentTextColor;
 				font.pixelSize: 27;
 			}
 		}

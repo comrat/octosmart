@@ -1,13 +1,8 @@
 Rectangle {
 	anchors.fill: context;
-	color: "#000";
+	color: colorTheme.backgroundColor;
 
-	Rectangle {
-		width: 1280;
-		height: 720;
-		border.color: "#f00";
-		border.width:2;
-	}
+	ColorTheme { id: colorTheme; }
 
 	PageStack {
 		width: 100%;

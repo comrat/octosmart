@@ -2,8 +2,8 @@ WebItem {
 	property string key;
 	width: 40;
 	height: width;
-	color: "#212121";
-	border.color: "#ff83ff";
+	color: colorTheme.panelColor;
+	border.color: colorTheme.accentPanelColor;
 	border.width: hover ? 2 : 0;
 
 	Text {
