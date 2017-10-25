@@ -1,5 +1,6 @@
 WebItem {
 	id: emulatorControlsProto;
+	signal close;
 	property bool show;
 	property bool showGrid;
 	width: 100%;
@@ -17,6 +18,8 @@ WebItem {
 			height: 50;
 
 			ImageMixin { source: "res/controls/back.png"; }
+
+			onClicked: { emulatorControlsProto.close() }
 		}
 
 		WebItem {

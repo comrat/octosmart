@@ -1,4 +1,5 @@
 Item {
+	signal close;
 	width: 100%;
 	height: 100%;
 
@@ -11,7 +12,11 @@ Item {
 		run(data): { this.runImpl(data, this.parent._selectedApp.options) }
 	}
 
-	EmulatorControls { id: controls; }
+	EmulatorControls {
+		id: controls;
+
+		onClose: { this.parent.close() }
+	}
 
 	KeyGrid {
 		y: 540;

@@ -10,7 +10,7 @@ Column {
 
 	Row {
 		width: 100%;
-		height: 35;
+		height: 27;
 		spacing: 10;
 
 		Text {

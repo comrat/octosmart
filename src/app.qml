@@ -19,7 +19,10 @@ Rectangle {
 		EmulatorPage {
 			id: emulatorPage;
 
-			onBackPressed: { this.parent.currentIndex = 0 }
+			onClose: { this.parent.showMenu() }
+			onBackPressed: { this.parent.showMenu() }
 		}
+
+		showMenu: { this.currentIndex = 0 }
 	}
 }

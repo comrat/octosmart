@@ -33,13 +33,16 @@ Item {
 				color: colorTheme.accentTextColor;
 				font.pixelSize: 27;
 			}
+
+			onClicked: { this.parent.select(this._local.model.index) }
 		}
 
-		chooseCurrent: { info.fill(this.model.get(this.currentIndex)) }
+		select(idx): { this.parent.selected(this.model.get(idx)) }
+		updateCurrentAppInfo: { info.fill(this.model.get(this.currentIndex)) }
 
-		onCurrentIndexChanged: { this.chooseCurrent() }
-		onActiveFocusChanged: { if (value) this.chooseCurrent() }
-		onSelectPressed: { this.parent.selected(this.model.get(this.currentIndex)) }
+		onCurrentIndexChanged: { this.updateCurrentAppInfo() }
+		onActiveFocusChanged: { if (value) this.updateCurrentAppInfo() }
+		onSelectPressed: { this.select(this.currentIndex) }
 	}
 
 	AppDescription {
