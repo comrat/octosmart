@@ -53,19 +53,63 @@ Item {
 	onCompleted: {
 		var data = [
 			{
-				"title" : "Planet of the Eights",
-				"description" : "The last 32-bit register is trying to survive on the terrible planet of the Eights using air balloon.",
-				"screenshot": "examples/planet_of_the_eights/planet.png",
-				"file": "examples/planet_of_the_eights/planet.8o",
-				"authors": ["comrat"],
+				"title" : "8ce 8ttorny Disk 1",
+				"description" : "The most expensive CHIP8 game made, taking up multiple game 'disks' to tell the story of the Lawyer Bell defending a courtroom janitor from murder charges.",
+				"screenshot": "examples/8ce_8ttorny_disc1/logo.png",
+				"file": "examples/8ce_8ttorny_disc1/source.8o",
+				"authors": ["SysL"],
 				"options": {
-					"tickrate": 200,
-					"fillColor": "#FF00FF",
-					"fillColor2": "#00FFFF",
+					"tickrate": 1000,
+					"fillColor": "#f1f1f1",
+					"fillColor2": "#000000",
 					"blendColor": "#000000",
-					"backgroundColor": "#00FFFF",
-					"buzzColor": "#990099",
-					"quietColor": "#330033",
+					"backgroundColor": "#0f0f0f",
+					"buzzColor": "#aaff55",
+					"quietColor": "#777777",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": false
+				}
+			}, {
+				"title" : "8ce 8ttorny Disk 2",
+				"description" : "The most expensive CHIP8 game made, taking up multiple game 'disks' to tell the story of the Lawyer Bell defending a courtroom janitor from murder charges.",
+				"screenshot": "examples/8ce_8ttorny_disc2/logo.png",
+				"file": "examples/8ce_8ttorny_disc2/source.8o",
+				"authors": ["SysL"],
+				"options": {
+					"tickrate": 1000,
+					"fillColor": "#f1f1f1",
+					"fillColor2": "#000000",
+					"blendColor": "#000000",
+					"backgroundColor": "#0f0f0f",
+					"buzzColor": "#aaff55",
+					"quietColor": "#777777",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": false
+				}
+			}, {
+				"title" : "8ce 8ttorny Disk 3",
+				"description" : "The most expensive CHIP8 game made, taking up multiple game 'disks' to tell the story of the Lawyer Bell defending a courtroom janitor from murder charges.",
+				"screenshot": "examples/8ce_8ttorny_disc3/logo.png",
+				"file": "examples/8ce_8ttorny_disc3/source.8o",
+				"authors": ["SysL"],
+				"options": {
+					"tickrate": 1000,
+					"fillColor": "#f1f1f1",
+					"fillColor2": "#000000",
+					"blendColor": "#000000",
+					"backgroundColor": "#0f0f0f",
+					"buzzColor": "#aaff55",
+					"quietColor": "#777777",
 					"shiftQuirks": false,
 					"loadStoreQuirks": false,
 					"vfOrderQuirks": false,
@@ -117,6 +161,28 @@ Item {
 					"jumpQuirks": false,
 					"screenRotation": false,
 					"enableXO": true
+				}
+			}, {
+				"title" : "Planet of the Eights",
+				"description" : "The last 32-bit register is trying to survive on the terrible planet of the Eights using air balloon.",
+				"screenshot": "examples/planet_of_the_eights/planet.png",
+				"file": "examples/planet_of_the_eights/planet.8o",
+				"authors": ["comrat"],
+				"options": {
+					"tickrate": 200,
+					"fillColor": "#FF00FF",
+					"fillColor2": "#00FFFF",
+					"blendColor": "#000000",
+					"backgroundColor": "#00FFFF",
+					"buzzColor": "#990099",
+					"quietColor": "#330033",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": false
 				}
 			}, {
 				"title" : "Skyward",
