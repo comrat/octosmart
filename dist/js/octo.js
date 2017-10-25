@@ -167,12 +167,15 @@ function share() {
 	}));
 }
 
-function runWithOptions(data, options) {
+function runWithOptions(data, options, complete) {
 	emulator.tickrate = options.tickrate;;
 	unpackOptions(emulator, options);
 	if (emulator.enableXO)
 		setEnableXO(emulator.enableXO);
 	run(data);
+
+	if (complete)
+		complete()
 }
 
 function runGist() {
