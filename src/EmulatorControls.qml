@@ -1,6 +1,7 @@
 WebItem {
-	id: emulatorControls;
+	id: emulatorControlsProto;
 	property bool show;
+	property bool showGrid;
 	width: 100%;
 	height: 100%;
 
@@ -22,11 +23,16 @@ WebItem {
 			width: 50;
 			height: 50;
 
-			ImageMixin { source: "res/controls/grid.png"; }
+			ImageMixin { source: "res/controls/" + (emulatorControlsProto.showGrid ? "no_grid.png" : "grid.png"); }
+
+			onClicked: {
+				emulatorControlsProto.showGrid = !emulatorControlsProto.showGrid
+				emulatorControlsProto.keepAlive()
+			}
 		}
 	}
 
-	MouseMoveMixin { onMouseMove: { emulatorControls.show = true } }
+	MouseMoveMixin { onMouseMove: { emulatorControlsProto.show = true } }
 
 	Timer {
 		id: showTimer;
@@ -35,5 +41,7 @@ WebItem {
 		onTriggered: { this.parent.show = false }
 	}
 
-	onShowChanged: { if (value) showTimer.restart() }
+	keepAlive: { showTimer.restart() }
+
+	onShowChanged: { if (value) this.keepAlive() }
 }

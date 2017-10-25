@@ -11,11 +11,12 @@ Item {
 		run(data): { this.runImpl(data, this.parent._selectedApp.options) }
 	}
 
-	EmulatorControls { }
+	EmulatorControls { id: controls; }
 
 	KeyGrid {
 		y: 540;
 		anchors.horizontalCenter: parent.horizontalCenter;
+		visible: controls.showGrid;
 	}
 
 	Resource {
