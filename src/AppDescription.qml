@@ -33,7 +33,7 @@ Column {
 		id: description;
 		width: 100%;
 		wrapMode: Text.WordWrap;
-		font.pixelSize: 24;
+		font.pixelSize: 21;
 		color: colorTheme.passiveTextColor;
 	}
 

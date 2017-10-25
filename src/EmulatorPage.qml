@@ -24,6 +24,8 @@ Item {
 		visible: controls.showGrid;
 	}
 
+	Spinner { running: emulator.loading; }
+
 	Resource {
 		id: resource;
 
