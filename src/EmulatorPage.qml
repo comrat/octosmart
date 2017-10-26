@@ -9,7 +9,7 @@ Item {
 		anchors.horizontalCenter: parent.horizontalCenter;
 		anchors.topMargin: 40;
 
-		run(data): { this.runImpl(data, this.parent._selectedApp.options) }
+		run(data): { this.doRun(data, this.parent._selectedApp.options) }
 	}
 
 	EmulatorControls {
@@ -24,7 +24,10 @@ Item {
 		visible: controls.showGrid;
 	}
 
-	Spinner { running: emulator.loading; }
+	CssSpinner {
+		running: emulator.loading;
+		anchors.centerIn: parent;
+	}
 
 	Resource {
 		id: resource;
