@@ -7,7 +7,7 @@ Item {
 		id: emulator;
 		anchors.top: parent.top;
 		anchors.horizontalCenter: parent.horizontalCenter;
-		anchors.topMargin: 40;
+		anchors.topMargin: 10;
 
 		run(data): { this.doRun(data, this.parent._selectedApp.options) }
 	}

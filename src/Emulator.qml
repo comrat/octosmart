@@ -1,7 +1,7 @@
 Item {
 	property bool loading;
-	width: 960;
-	height: 480;
+	width: height * 2;
+	height: 512;
 
 	Item {
 		width: 100%;
