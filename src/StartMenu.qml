@@ -209,6 +209,28 @@ Item {
 					"screenRotation": false,
 					"enableXO": true
 				}
+			}, {
+				"title" : "t8nks",
+				"description" : "In Campaign mode, you play for a high score. You have limited ammo, and 3 lives. How far can you get?<br>Free Play: When you first select Free Play mode, you are presented with the ability to select a map. You have 99 of each type of ammo, so go hog wild. Maps are unlocked by visiting them in either mode, so don't worry if you die. You can pick up where you left off.",
+				"screenshot": "examples/t8nks/logo.png",
+				"file": "examples/t8nks/source.8o",
+				"authors": ["your name here"],
+				"options": {
+					"tickrate": 1000,
+					"fillColor": "#554422",
+					"fillColor2": "#456543",
+					"blendColor": "#EEEEFF",
+					"backgroundColor": "#87CEEB",
+					"buzzColor": "#FFFFFF",
+					"quietColor": "#000000",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": true
+				}
 			}
 		]
 
