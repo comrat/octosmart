@@ -2,8 +2,8 @@
 	"platforms": ["web", "webos"],
 	"properties": {
 		"title": "octosmart",
-		"author": { "name": "Alexey Pobery", "email": "poberyaa@gmail.com", "site": "http://start.ru" },
-		"iconColor": "#232930",
+		"author": { "name": "Alexey Pobery", "email": "poberyaa@gmail.com", "site": "https://github.com/comrat" },
+		"iconColor": "#212121",
 		"version": "1.0.0"
 	},
 	"properties.style.font": {
