@@ -203,6 +203,28 @@ Item {
 					"enableXO": true
 				}
 			}, {
+				"title" : "octopeg",
+				"description" : "You start each level with a number of shots. You can see these in the top left corner. You will get fewer shots as the game progresses. When you run out of shots, you will progress to the next level. There are 8 levels. It is not possible to lose.",
+				"screenshot": "examples/octopeg/logo.png",
+				"file": "examples/octopeg/output.ch8",
+				"authors": ["Mastigophoran"],
+				"options": {
+					"tickrate": 200,
+					"fillColor": "#acd5ff",
+					"fillColor2": "#000000",
+					"blendColor": "#000000",
+					"backgroundColor": "#113152",
+					"buzzColor": "#264c74",
+					"quietColor": "#330033",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": false
+				}
+			}, {
 				"title" : "Planet of the Eights",
 				"description" : "The last 32-bit register is trying to survive on the terrible planet of the Eights using air balloon.",
 				"screenshot": "examples/planet_of_the_eights/planet.png",
