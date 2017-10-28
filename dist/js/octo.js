@@ -64,7 +64,7 @@ var intervalHandle = null;
 var emulator = new Emulator();
 
 function run(data) {
-	runRom(compile(data));
+	runRom({ rom:data, breakpoints:{}, aliases:{}, labels:{} });
 }
 
 function compile(data) {
