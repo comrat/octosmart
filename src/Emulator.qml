@@ -37,7 +37,7 @@ Item {
 
 	runImpl(data, options): {
 		var self = this
-		window.runWithOptions(resource.data, options, function() { self.loading = false }.bind(this))
+		window.runWithOptions(data, options, function() { self.loading = false }.bind(this))
 	}
 
 	onCompleted: { this.element.dom.setAttribute("id", "emulator") }

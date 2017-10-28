@@ -29,10 +29,10 @@ Item {
 		anchors.centerIn: parent;
 	}
 
-	Resource {
+	BlobLoader {
 		id: resource;
 
-		onDataChanged: { emulator.run(value) }
+		onLoaded(data): { emulator.run(data) }
 	}
 
 	loadApp(app): {
