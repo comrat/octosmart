@@ -1,5 +1,4 @@
 Column {
-	width: 40%;
 	spacing: 10;
 
 	Image {

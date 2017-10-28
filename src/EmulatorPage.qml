@@ -10,6 +10,11 @@ Item {
 		anchors.topMargin: 10;
 
 		run(data): { this.doRun(data, this.parent._selectedApp.options) }
+
+		onCompleted: {
+			this.style("will-change", "transform")
+			this.style("transform", "translateZ(0)")
+		}
 	}
 
 	EmulatorControls {

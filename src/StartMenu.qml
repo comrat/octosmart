@@ -1,4 +1,5 @@
 Item {
+	id: startMenuProto;
 	signal selected;
 	width: 100%;
 	height: 100%;
@@ -10,45 +11,81 @@ Item {
 	}
 
 	ListView {
-		id: gameList;
-		x: 10%;
+		id: menuList;
 		y: 20%;
 		width: 30%;
 		height: 80%;
-		model: ListModel { }
+		model: ListModel {
+			ListElement { menu: "games"; icon: "res/menu/games.png"; }
+			ListElement { menu: "settings"; icon: "res/menu/settings.png"; }
+			ListElement { menu: "help"; icon: "res/menu/help.png"; }
+		}
 		delegate: WebItem {
 			width: 100%;
 			height: 50;
 			border.width: activeFocus ? 2 : 0;
 			border.color: colorTheme.accentPanelColor;
 
-			FocusOnHoverMixin { }
-
-			Text {
+			ImageMixin {
 				width: 100%;
 				height: 100%;
-				verticalAlignment: Text.AlignVCenter;
-				horizontalAlignment: Text.AlignHCenter;
-				text: model.title;
-				color: colorTheme.accentTextColor;
-				font.pixelSize: 27;
+				source: model.icon;
 			}
-
-			onClicked: { this.parent.select(this._local.model.index) }
 		}
-
-		select(idx): { this.parent.selected(this.model.get(idx)) }
-		updateCurrentAppInfo: { info.fill(this.model.get(this.currentIndex)) }
-
-		onCurrentIndexChanged: { this.updateCurrentAppInfo() }
-		onActiveFocusChanged: { if (value) this.updateCurrentAppInfo() }
-		onSelectPressed: { this.select(this.currentIndex) }
 	}
 
-	AppDescription {
-		id: info;
-		x: 50%;
+	PageStack {
+		x: 10%;
 		y: 20%;
+		width: 80%;
+		height: 80%;
+		clip: false;
+
+		Item {
+			width: 100%;
+			height: 100%;
+
+			ListView {
+				id: gameList;
+				width: 45%;
+				height: 80%;
+				model: ListModel { }
+				delegate: WebItem {
+					width: 100%;
+					height: 50;
+					border.width: activeFocus ? 2 : 0;
+					border.color: colorTheme.accentPanelColor;
+
+					FocusOnHoverMixin { }
+
+					Text {
+						width: 100%;
+						height: 100%;
+						verticalAlignment: Text.AlignVCenter;
+						horizontalAlignment: Text.AlignHCenter;
+						text: model.title;
+						color: colorTheme.accentTextColor;
+						font.pixelSize: 27;
+					}
+
+					onClicked: { this.parent.select(this._local.model.index) }
+				}
+
+				select(idx): { startMenuProto.selected(this.model.get(idx)) }
+				updateCurrentAppInfo: { info.fill(this.model.get(this.currentIndex)) }
+
+				onCurrentIndexChanged: { this.updateCurrentAppInfo() }
+				onActiveFocusChanged: { if (value) this.updateCurrentAppInfo() }
+				onSelectPressed: { this.select(this.currentIndex) }
+			}
+
+			AppDescription {
+				id: info;
+				x: 50%;
+				width: 40%;
+				height: 100%;
+			}
+		}
 	}
 
 	onActiveFocusChanged: { if (value) gameList.setFocus() }
