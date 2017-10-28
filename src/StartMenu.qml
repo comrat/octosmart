@@ -96,7 +96,7 @@ Item {
 				"title" : "8ce 8ttorny Disk 1",
 				"description" : "The most expensive CHIP8 game made, taking up multiple game 'disks' to tell the story of the Lawyer Bell defending a courtroom janitor from murder charges.",
 				"screenshot": "examples/8ce_8ttorny_disc1/logo.png",
-				"file": "examples/8ce_8ttorny_disc1/source.8o",
+				"file": "examples/8ce_8ttorny_disc1/output.ch8",
 				"authors": ["SysL"],
 				"options": {
 					"tickrate": 1000,
@@ -118,7 +118,7 @@ Item {
 				"title" : "8ce 8ttorny Disk 2",
 				"description" : "The most expensive CHIP8 game made, taking up multiple game 'disks' to tell the story of the Lawyer Bell defending a courtroom janitor from murder charges.",
 				"screenshot": "examples/8ce_8ttorny_disc2/logo.png",
-				"file": "examples/8ce_8ttorny_disc2/source.8o",
+				"file": "examples/8ce_8ttorny_disc2/output.ch8",
 				"authors": ["SysL"],
 				"options": {
 					"tickrate": 1000,
@@ -140,7 +140,7 @@ Item {
 				"title" : "8ce 8ttorny Disk 3",
 				"description" : "The most expensive CHIP8 game made, taking up multiple game 'disks' to tell the story of the Lawyer Bell defending a courtroom janitor from murder charges.",
 				"screenshot": "examples/8ce_8ttorny_disc3/logo.png",
-				"file": "examples/8ce_8ttorny_disc3/source.8o",
+				"file": "examples/8ce_8ttorny_disc3/output.ch8",
 				"authors": ["SysL"],
 				"options": {
 					"tickrate": 1000,
@@ -162,7 +162,7 @@ Item {
 				"title" : "Kesha was bird",
 				"description" : "This game contains your daily doze of chill and no action at all. Written for CHIP8, stunningly beautiful in its 4-colour palette. Adding in a bit of gore with fine finish of 1-pixel erotic.",
 				"screenshot": "examples/kesha_was_bird/logo.png",
-				"file": "examples/kesha_was_bird/kesha1.8o",
+				"file": "examples/kesha_was_bird/kesha1.bin",
 				"authors": ["whoozle", "gazay"],
 				"options": {
 					"tickrate": 1000,
@@ -184,7 +184,7 @@ Item {
 				"title" : "Kesha was biird",
 				"description" : "You may want to play the first part to have better understanding what's going on there. Or not.",
 				"screenshot": "examples/kesha_was_biird/logo.png",
-				"file": "examples/kesha_was_biird/kesha2.8o",
+				"file": "examples/kesha_was_biird/kesha2.bin",
 				"authors": ["whoozle", "gazay"],
 				"options": {
 					"tickrate": 1000,
@@ -206,7 +206,7 @@ Item {
 				"title" : "Planet of the Eights",
 				"description" : "The last 32-bit register is trying to survive on the terrible planet of the Eights using air balloon.",
 				"screenshot": "examples/planet_of_the_eights/planet.png",
-				"file": "examples/planet_of_the_eights/planet.8o",
+				"file": "examples/planet_of_the_eights/planet.ch8",
 				"authors": ["comrat"],
 				"options": {
 					"tickrate": 200,
@@ -228,7 +228,7 @@ Item {
 				"title" : "Skyward",
 				"description" : "All of her life Amy has lived in the darkness, in the safety of the caverns her village has called home. Legends tell of a crystal above that will grant anyone a single wish, but no one has seen the sky in the generations. Enraptured by these tales, she packs for a journey to see for herself if these stories are true. Armed with only a few spears and rations for the climb, she sets off skyward to create a legend of her own...",
 				"screenshot": "examples/skyward/logo.png",
-				"file": "examples/skyward/skyward.8o",
+				"file": "examples/skyward/output.ch8",
 				"authors": ["jackiekircher", "Tann"],
 				"options": {
 					"tickrate": 1000,
@@ -250,7 +250,7 @@ Item {
 				"title" : "t8nks",
 				"description" : "In Campaign mode, you play for a high score. You have limited ammo, and 3 lives. How far can you get?<br>Free Play: When you first select Free Play mode, you are presented with the ability to select a map. You have 99 of each type of ammo, so go hog wild. Maps are unlocked by visiting them in either mode, so don't worry if you die. You can pick up where you left off.",
 				"screenshot": "examples/t8nks/logo.png",
-				"file": "examples/t8nks/source.8o",
+				"file": "examples/t8nks/output.ch8",
 				"authors": ["your name here"],
 				"options": {
 					"tickrate": 1000,
