@@ -165,6 +165,24 @@ Item {
 				"file": "examples/kesha_was_bird/kesha1.bin",
 				"authors": ["whoozle", "gazay"],
 				"options": {
+					"keyMap": {
+						'0': '0', // x (0)
+						'1': '1', // 1 (1)
+						'2': '2', // 2 (2)
+						'3': '3', // 3 (3)
+						'4': '4', // q (4)
+						'5': '5', // w (5)
+						'6': '6', // e (6)
+						'7': '7', // a (7)
+						'8': '8', // s (8)
+						'9': '9', // d (9)
+						'Red': 'a', // z (A)
+						'Green': 'b', // c (B)
+						'Yellow': 'c', // 4 (C)
+						'Blue': 'd', // r (D)
+						'e': 'e', // f (E)
+						'f': 'f'  // v (F)
+					},
 					"tickrate": 1000,
 					"fillColor": "#B8CD9E",
 					"fillColor2": "#ED656B",
@@ -187,6 +205,24 @@ Item {
 				"file": "examples/kesha_was_biird/kesha2.bin",
 				"authors": ["whoozle", "gazay"],
 				"options": {
+					"keyMap": {
+						'0': '0', // x (0)
+						'1': '1', // 1 (1)
+						'2': '2', // 2 (2)
+						'3': '3', // 3 (3)
+						'4': '4', // q (4)
+						'5': '5', // w (5)
+						'6': '6', // e (6)
+						'7': '7', // a (7)
+						'8': '8', // s (8)
+						'9': '9', // d (9)
+						'Red': 'a', // z (A)
+						'Green': 'b', // c (B)
+						'Yellow': 'c', // 4 (C)
+						'Blue': 'd', // r (D)
+						'e': 'e', // f (E)
+						'f': 'f'  // v (F)
+					},
 					"tickrate": 1000,
 					"fillColor": "#1a1c19",
 					"fillColor2": "#a0a29f",
