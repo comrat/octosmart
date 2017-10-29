@@ -160,9 +160,10 @@ Item {
 				}
 			}, {
 				"title" : "Civiliz8n",
-				"description" : "Score as many points as you can in 10 turns.",
+				"description" : "Score as many points as you can in 10 turns. Each turn: Place one of the three random tiles adjacent to the last tile placed.",
 				"screenshot": "examples/civiliz8n/logo.png",
 				"file": "examples/civiliz8n/output.ch8",
+				"manual": "manuals.CivManual",
 				"authors": ["Tann"],
 				"options": {
 					"tickrate": 100,
