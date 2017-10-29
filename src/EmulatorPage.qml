@@ -5,11 +5,17 @@ Item {
 
 	Emulator {
 		id: emulator;
+		property bool loading;
 		anchors.top: parent.top;
 		anchors.horizontalCenter: parent.horizontalCenter;
-		anchors.topMargin: 10;
+		anchors.topMargin: !controls.showGrid ? (parent.height - height) / 2 : 10;
+		visible: !loading;
 
-		run(data): { this.doRun(data, this.parent._selectedApp.options) }
+		run(data): {
+			var self = this
+			this.loading = true
+			this.runImpl(data, this.parent._selectedApp.options, function () { self.loading = false })
+		}
 
 		onCompleted: {
 			this.style("will-change", "transform")
@@ -30,7 +36,7 @@ Item {
 	}
 
 	CssSpinner {
-		running: emulator.loading;
+		/* running: emulator.loading; */
 		anchors.centerIn: parent;
 	}
 
