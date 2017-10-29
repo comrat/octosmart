@@ -159,6 +159,28 @@ Item {
 					"enableXO": false
 				}
 			}, {
+				"title" : "Civiliz8n",
+				"description" : "Score as many points as you can in 10 turns.",
+				"screenshot": "examples/civiliz8n/logo.png",
+				"file": "examples/civiliz8n/output.ch8",
+				"authors": ["Tann"],
+				"options": {
+					"tickrate": 100,
+					"fillColor": "#754D27",
+					"fillColor2": "#738C3A",
+					"blendColor": "#E2CB8A",
+					"backgroundColor": "#141421",
+					"buzzColor": "#284720",
+					"quietColor": "#91742b",
+					"shiftQuirks": false,
+					"loadStoreQuirks": true,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": true
+				}
+			}, {
 				"title" : "Kesha was bird",
 				"description" : "This game contains your daily doze of chill and no action at all. Written for CHIP8, stunningly beautiful in its 4-colour palette. Adding in a bit of gore with fine finish of 1-pixel erotic.",
 				"screenshot": "examples/kesha_was_bird/logo.png",
