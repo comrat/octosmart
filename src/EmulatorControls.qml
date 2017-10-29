@@ -1,6 +1,7 @@
 WebItem {
 	id: emulatorControlsProto;
 	signal close;
+	signal showHelp;
 	property bool show;
 	property bool showGrid;
 	width: 100%;
@@ -31,7 +32,7 @@ WebItem {
 		ControlItem {
 			icon: "res/controls/help.png";
 
-			onClicked: { }
+			onClicked: { emulatorControlsProto.showHelp() }
 		}
 	}
 

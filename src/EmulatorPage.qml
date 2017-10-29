@@ -27,7 +27,10 @@ Item {
 		id: controls;
 
 		onClose: { this.parent.close() }
+		onShowHelp: { helpPage.show(this.parent._selectedApp.manual) }
 	}
+
+	HelpPage { id: helpPage; }
 
 	KeyGrid {
 		y: 540;

@@ -11,5 +11,6 @@
 		"pixelSize": 20,
 		"lineHeight": 1.2
 	},
+	"sources": ["src", "manuals"],
 	"templater": "jinja2"
 }
