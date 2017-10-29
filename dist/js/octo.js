@@ -5,6 +5,26 @@
 ////////////////////////////////////
 
 var zeroes = "00000000";
+var currentKeyMap
+var defaultKeyMap = {
+	'0': '0', // x (0)
+	'1': '1', // 1 (1)
+	'2': '2', // 2 (2)
+	'3': '3', // 3 (3)
+	'Red': '4', // q (4)
+	'Up': '5', // w (5)
+	'Select': '6', // e (6)
+	'Left': '7', // a (7)
+	'Down': '8', // s (8)
+	'Right': '9', // d (9)
+	'Green': 'a', // z (A)
+	'Yellow': 'b', // c (B)
+	'Blue': 'c', // 4 (C)
+	'4': 'd', // r (D)
+	'5': 'e', // f (E)
+	'6': 'f'  // v (F)
+}
+
 
 function maskFormat(mask) {
 	if (emulator.maskFormatOverride) { return binaryFormat(mask);  }
@@ -168,7 +188,8 @@ function share() {
 }
 
 function runWithOptions(data, options, complete) {
-	emulator.tickrate = options.tickrate;;
+	currentKeyMap = options.keyMap || defaultKeyMap
+	emulator.tickrate = options.tickrate;
 	unpackOptions(emulator, options);
 	if (emulator.enableXO)
 		setEnableXO(emulator.enableXO);
@@ -230,24 +251,44 @@ function render() {
 	document.getElementById("emulator").style.backgroundColor = (emulator.st > 0) ? emulator.buzzColor : emulator.quietColor;
 }
 
+// var emulatorKeyMap = {
+// 	'0': 88, // x (0)
+// 	'1': 49, // 1 (1)
+// 	'2': 50, // 2 (2)
+// 	'3': 51, // 3 (3)
+// 	'4': 81, // q (4)
+// 	'Up': 87, // w (5)
+// 	'e': 69, // e (6)
+// 	'Left': 65, // a (7)
+// 	'Down': 83, // s (8)
+// 	'Right': 68, // d (9)
+// 	'z': 90, // z (A)
+// 	'c': 67, // c (B)
+// 	'4': 52, // 4 (C)
+// 	'0': 82, // r (D)
+// 	'0': 70, // f (E)
+// 	'0': 86  // v (F)
+// }
+
 var emulatorKeyMap = {
 	'0': 88, // x (0)
 	'1': 49, // 1 (1)
 	'2': 50, // 2 (2)
 	'3': 51, // 3 (3)
 	'4': 81, // q (4)
-	'Up': 87, // w (5)
-	'e': 69, // e (6)
-	'Left': 65, // a (7)
-	'Down': 83, // s (8)
-	'Right': 68, // d (9)
-	'z': 90, // z (A)
-	'c': 67, // c (B)
-	'4': 52, // 4 (C)
-	'0': 82, // r (D)
-	'0': 70, // f (E)
-	'0': 86  // v (F)
+	'5': 87, // w (5)
+	'6': 69, // e (6)
+	'7': 65, // a (7)
+	'8': 83, // s (8)
+	'9': 68, // d (9)
+	'a': 90, // z (A)
+	'b': 67, // c (B)
+	'c': 52, // 4 (C)
+	'd': 82, // r (D)
+	'e': 70, // f (E)
+	'f': 86  // v (F)
 }
+
 
 function getPureQmlKey(keyCode) {
 	var codes = qml.core.keyCodes
@@ -255,7 +296,7 @@ function getPureQmlKey(keyCode) {
 
 	for (var i in codes)
 		if (i == keyCode)
-			return emulatorKeyMap[codes[i]]
+			return emulatorKeyMap[currentKeyMap[codes[i]]]
 	return qmlKey
 }
 
