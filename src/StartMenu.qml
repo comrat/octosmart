@@ -36,7 +36,7 @@ Item {
 
 	PageStack {
 		x: 10%;
-		y: 20%;
+		y: 17%;
 		width: 80%;
 		height: 80%;
 		clip: false;

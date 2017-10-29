@@ -13,25 +13,25 @@ WebItem {
 		visible: parent.show;
 		spacing: 10;
 
-		WebItem {
-			width: 50;
-			height: 50;
-
-			ImageMixin { source: "res/controls/back.png"; }
+		ControlItem {
+			icon: "res/controls/back.png";
 
 			onClicked: { emulatorControlsProto.close() }
 		}
 
-		WebItem {
-			width: 50;
-			height: 50;
-
-			ImageMixin { source: "res/controls/" + (emulatorControlsProto.showGrid ? "no_grid.png" : "grid.png"); }
+		ControlItem {
+			icon: "res/controls/" + (emulatorControlsProto.showGrid ? "no_grid.png" : "grid.png");
 
 			onClicked: {
 				emulatorControlsProto.showGrid = !emulatorControlsProto.showGrid
 				emulatorControlsProto.keepAlive()
 			}
+		}
+
+		ControlItem {
+			icon: "res/controls/help.png";
+
+			onClicked: { }
 		}
 	}
 
