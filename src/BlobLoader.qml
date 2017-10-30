@@ -16,6 +16,7 @@ Request {
 				fileReader.onload = function() {
 					var buff = fileReader.result;
 					var bytes = new Uint8Array(buff);
+					selfContext._data = bytes
 					selfContext.loaded(bytes)
 				};
 				fileReader.readAsArrayBuffer(res.target.response);

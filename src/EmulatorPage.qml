@@ -50,7 +50,10 @@ Item {
 	}
 
 	loadApp(app): {
-		resource.url = app.file
 		this._selectedApp = app
+		if (resource.url == app.file)
+			emulator.run(resource._data)
+		else
+			resource.url = app.file
 	}
 }
