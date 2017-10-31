@@ -124,7 +124,6 @@ function runRom(rom) {
 	emulator.init(rom);
 	setRenderTarget(5, "target");
 	audioSetup();
-	document.getElementById("emulator").style.display = "inline";
 	document.getElementById("emulator").style.backgroundColor = emulator.quietColor;
 	window.addEventListener("keydown", keyDown, false);
 	window.addEventListener("keyup"  , keyUp  , false);
@@ -132,7 +131,6 @@ function runRom(rom) {
 }
 
 function reset() {
-	document.getElementById("emulator").style.display = "none";
 	window.removeEventListener("keydown", keyDown, false);
 	window.removeEventListener("keyup"  , keyUp  , false);
 	window.clearInterval(intervalHandle);
