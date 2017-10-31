@@ -36,19 +36,22 @@ Item {
 
 	PageStack {
 		x: 10%;
-		y: 17%;
+		y: 20%;
 		width: 80%;
 		height: 80%;
-		clip: false;
 
 		Item {
+			y: 2;
+			x: 2;
 			width: 100%;
 			height: 100%;
 
 			ListView {
 				id: gameList;
 				width: 45%;
-				height: 80%;
+				height: 100%;
+				positionMode: ListView.Center;
+				keyNavigationWraps: false;
 				model: ListModel { }
 				delegate: WebItem {
 					width: 100%;
@@ -160,7 +163,7 @@ Item {
 				}
 			}, {
 				"title" : "Civiliz8n",
-				"description" : "Score as many points as you can in 10 turns. Each turn: Place one of the three random tiles adjacent to the last tile placed.",
+				"description" : "Score as many points as you can in 10 turns. Each turn: Place one of the three random tiles adjacent to the last tile placed. Send score pictures to tann@threechoicegames.com",
 				"screenshot": "examples/civiliz8n/logo.png",
 				"file": "examples/civiliz8n/output.ch8",
 				"manual": "manuals.CivManual",
