@@ -19,8 +19,8 @@ var defaultKeyMap = {
 	'Right': '9', // d (9)
 	'Green': 'a', // z (A)
 	'Yellow': 'b', // c (B)
-	'Blue': 'c', // 4 (C)
-	'4': 'd', // r (D)
+	'4': 'c', // 4 (C)
+	'Blue': 'd', // r (D)
 	'5': 'e', // f (E)
 	'6': 'f'  // v (F)
 }
