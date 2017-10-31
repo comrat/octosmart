@@ -1,8 +1,9 @@
 WebItem {
 	id: emulatorControlsProto;
 	signal close;
-	signal showHelp;
+	signal openHelp;
 	property bool show;
+	property bool showHelp;
 	property bool showGrid;
 	width: 100%;
 	height: 100%;
@@ -31,8 +32,9 @@ WebItem {
 
 		ControlItem {
 			icon: "res/controls/help.png";
+			visible: emulatorControlsProto.showHelp;
 
-			onClicked: { emulatorControlsProto.showHelp() }
+			onClicked: { emulatorControlsProto.openHelp() }
 		}
 	}
 

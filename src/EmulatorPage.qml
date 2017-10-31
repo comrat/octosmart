@@ -27,7 +27,7 @@ Item {
 		id: controls;
 
 		onClose: { this.parent.close() }
-		onShowHelp: { helpPage.show(this.parent._selectedApp.manual) }
+		onOpenHelp: { helpPage.show(this.parent._selectedApp.manual) }
 	}
 
 	HelpPage { id: helpPage; }
@@ -51,6 +51,8 @@ Item {
 
 	loadApp(app): {
 		this._selectedApp = app
+		controls.showHelp = app.manual
+
 		if (resource.url == app.file)
 			emulator.run(resource._data)
 		else
