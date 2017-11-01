@@ -1,6 +1,7 @@
 Column {
 	id: appDescriptionProto;
 	signal play;
+	signal openHelp;
 	spacing: 10;
 
 	Image {
@@ -30,7 +31,7 @@ Column {
 			text: "Manual";
 			focus: true;
 
-			onPressed: { appDescriptionProto.showHelpPage() }
+			onPressed: { appDescriptionProto.openHelp() }
 		}
 	}
 

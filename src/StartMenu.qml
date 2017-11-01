@@ -93,11 +93,13 @@ Item {
 				height: 100%;
 
 				onPlay: { gameList.select(gameList.currentIndex) }
+				onOpenHelp: { menuHelpPage.show(gameList.model.get(gameList.currentIndex).manual) }
 				onLeftPressed: { gameList.setFocus() }
-				onShowHelpPage: { }
 			}
 		}
 	}
+
+	HelpPage { id: menuHelpPage; }
 
 	onActiveFocusChanged: { if (value) gameList.setFocus() }
 

@@ -11,9 +11,10 @@ Rectangle {
 		width: 150;
 		height: 50;
 		anchors.horizontalCenter: parent.horizontalCenter;
+		focus: parent.visible;
 		text: "Close";
 
-		onClicked: { this.parent.hide() }
+		onPressed: { this.parent.hide() }
 		onBackPressed: { this.parent.hide() }
 	}
 
