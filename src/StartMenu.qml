@@ -52,6 +52,7 @@ Item {
 				height: 100%;
 				positionMode: ListView.Center;
 				keyNavigationWraps: false;
+				focus: true;
 				model: ListModel { }
 				delegate: WebItem {
 					width: 100%;
@@ -70,16 +71,19 @@ Item {
 						color: colorTheme.accentTextColor;
 						font.pixelSize: 27;
 					}
+				}
 
-					onClicked: { this.parent.select(this._local.model.index) }
+				updateCurrentAppInfo: {
+					if (this.currentIndex >= 0 && this.currentIndex < this.count)
+						info.fill(this.model.get(this.currentIndex))
 				}
 
 				select(idx): { startMenuProto.selected(this.model.get(idx)) }
-				updateCurrentAppInfo: { info.fill(this.model.get(this.currentIndex)) }
 
+				onCountChanged: { if (value) this.updateCurrentAppInfo() }
+				onRightPressed: { info.setFocus() }
+				onSelectPressed: { info.setFocus() }
 				onCurrentIndexChanged: { this.updateCurrentAppInfo() }
-				onActiveFocusChanged: { if (value) this.updateCurrentAppInfo() }
-				onSelectPressed: { this.select(this.currentIndex) }
 			}
 
 			AppDescription {
@@ -87,6 +91,10 @@ Item {
 				x: 50%;
 				width: 40%;
 				height: 100%;
+
+				onPlay: { gameList.select(gameList.currentIndex) }
+				onLeftPressed: { gameList.setFocus() }
+				onShowHelpPage: { }
 			}
 		}
 	}

@@ -30,13 +30,13 @@ Item {
 		onOpenHelp: { helpPage.show(this.parent._selectedApp.manual) }
 	}
 
-	HelpPage { id: helpPage; }
-
 	KeyGrid {
 		y: 540;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		visible: controls.showGrid;
 	}
+
+	HelpPage { id: helpPage; }
 
 	CssSpinner {
 		/* running: emulator.loading; */

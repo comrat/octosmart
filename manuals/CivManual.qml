@@ -4,8 +4,9 @@ Item {
 
 	ListView {
 		id: tileView;
-		width: 100%;
+		width: 70%;
 		height: 100%;
+		anchors.horizontalCenter: parent.horizontalCenter;
 		model: ListModel {
 			ListElement {
 				title: "Hut: +1 point";
@@ -51,7 +52,7 @@ Item {
 		}
 		delegate: Item {
 			width: 100%;
-			height: 10%;
+			height: 8%;
 
 			Image {
 				width: parent.height;

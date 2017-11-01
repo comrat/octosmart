@@ -1,4 +1,5 @@
 WebItem {
+	signal pressed;
 	property string text;
 	width: 100%;
 	height: 50;
@@ -17,4 +18,7 @@ WebItem {
 		color: colorTheme.accentTextColor;
 		font.pixelSize: 27;
 	}
+
+	onCliced: { this.pressed() }
+	onSelectPressed: { this.pressed() }
 }
