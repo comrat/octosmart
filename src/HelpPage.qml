@@ -5,26 +5,13 @@ Rectangle {
 	color: colorTheme.backgroundColor;
 	visible: false;
 
-	WebItem {
+	OctoButton {
 		id: closeButton;
 		y: 90%;
 		width: 150;
 		height: 50;
 		anchors.horizontalCenter: parent.horizontalCenter;
-		border.width: activeFocus ? 2 : 0;
-		border.color: colorTheme.accentPanelColor;
-
-		FocusOnHoverMixin { }
-
-		Text {
-			width: 100%;
-			height: 100%;
-			verticalAlignment: Text.AlignVCenter;
-			horizontalAlignment: Text.AlignHCenter;
-			color: colorTheme.accentTextColor;
-			font.pixelSize: 27;
-			text: "Close";
-		}
+		text: "Close";
 
 		onClicked: { this.parent.hide() }
 		onBackPressed: { this.parent.hide() }
