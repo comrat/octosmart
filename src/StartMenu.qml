@@ -185,6 +185,28 @@ Item {
 					"enableXO": true
 				}
 			}, {
+				"title" : "DVN8",
+				"description" : "WASD to move UP/Down/Left/Right",
+				"screenshot": "examples/dvn8/logo.png",
+				"file": "examples/dvn8/output.ch8",
+				"authors": ["SysL"],
+				"options": {
+					"tickrate": 20,
+					"fillColor": "#1f1f1f",
+					"fillColor2": "#000000",
+					"blendColor": "#000000",
+					"backgroundColor": "#f0f0f0",
+					"buzzColor": "#aa2222",
+					"quietColor": "#000000",
+					"shiftQuirks": false,
+					"loadStoreQuirks": true,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": false
+				}
+			}, {
 				"title" : "Kesha was bird",
 				"description" : "This game contains your daily doze of chill and no action at all. Written for CHIP8, stunningly beautiful in its 4-colour palette. Adding in a bit of gore with fine finish of 1-pixel erotic.",
 				"screenshot": "examples/kesha_was_bird/logo.png",
