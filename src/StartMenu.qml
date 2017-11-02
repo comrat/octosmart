@@ -319,6 +319,28 @@ Item {
 					"enableXO": true
 				}
 			}, {
+				"title" : "Kesha was ninja",
+				"description" : "Legendary ninja returns! Who is he? Ruthless killer? Absolute evil? Character with his own purpose? His motives are still unclear, and his story is for you to unfold.",
+				"screenshot": "examples/kesha_was_ninja/logo.png",
+				"file": "examples/kesha_was_ninja/output.ch8",
+				"authors": ["whoozle", "gazay"],
+				"options": {
+					"tickrate": 1000,
+					"fillColor": "#b22d10",
+					"fillColor2": "#10b258",
+					"blendColor": "#ffffff",
+					"backgroundColor": "#283593",
+					"buzzColor": "#182583",
+					"quietColor": "#182583",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": true
+				}
+			}, {
 				"title" : "octopeg",
 				"description" : "You start each level with a number of shots. You can see these in the top left corner. You will get fewer shots as the game progresses. When you run out of shots, you will progress to the next level. There are 8 levels. It is not possible to lose.",
 				"screenshot": "examples/octopeg/logo.png",
