@@ -106,6 +106,28 @@ Item {
 	onCompleted: {
 		var data = [
 			{
+				"title" : "2048-Game",
+				"description" : "2048 game which based on its original game.",
+				"screenshot": "examples/2048/logo.png",
+				"file": "examples/2048/output.ch8",
+				"authors": ["AKouZ1"],
+				"options": {
+					"tickrate": 200,
+					"fillColor": "#4080ff",
+					"fillColor2": "#FF6600",
+					"blendColor": "#662200",
+					"backgroundColor": "#081020",
+					"buzzColor": "#FFAA00",
+					"quietColor": "#000000",
+					"shiftQuirks": false,
+					"loadStoreQuirks": false,
+					"vfOrderQuirks": false,
+					"clipQuirks": false,
+					"jumpQuirks": false,
+					"screenRotation": false,
+					"enableXO": true
+				}
+			}, {
 				"title" : "8ce 8ttorny Disk 1",
 				"description" : "The most expensive CHIP8 game made, taking up multiple game 'disks' to tell the story of the Lawyer Bell defending a courtroom janitor from murder charges.",
 				"screenshot": "examples/8ce_8ttorny_disc1/logo.png",
