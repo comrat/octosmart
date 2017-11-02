@@ -23,7 +23,7 @@ Rectangle {
 		x: 5%;
 		y: 10%;
 		width: 90%;
-		height: 80%;
+		height: 90%;
 		clip: true;
 
 		onLoaded: {

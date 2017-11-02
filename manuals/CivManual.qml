@@ -1,11 +1,83 @@
-Item {
+Column {
 	width: 100%;
 	height: 100%;
 
+	Text {
+		width: 100%;
+		horizontalAlignment: Text.AlignHCenter;
+		text: "CONTROLS";
+		color: colorTheme.accentTextColor;
+	}
+
+	ListView {
+		width: 10%;
+		height: 40%;
+		anchors.horizontalCenter: parent.horizontalCenter;
+		focus: false;
+		model: ListModel {
+			ListElement { text: "W"; icon: "res/keys/up.png"; }
+			ListElement { text: "A"; icon: "res/keys/left.png"; }
+			ListElement { text: "S"; icon: "res/keys/down.png"; }
+			ListElement { text: "D"; icon: "res/keys/right.png"; }
+			ListElement { text: "Q"; color: "red"; }
+			ListElement { text: "E"; color: "green"; }
+		}
+		delegate: Item {
+			width: 100%;
+			height: 15%;
+
+			Row {
+				height: 100%;
+				anchors.horizontalCenter: parent.horizontalCenter;
+				spacing: 40;
+
+				Text {
+					id: keyText;
+					width: parent.parent.width / 2;
+					color: colorTheme.textColor;
+					wrapMode: Text.WordWrap;
+					font.pixelSize: 32;
+					text: model.text;
+				}
+
+				Image {
+					width: height;
+					height: keyText.height;
+					source: model.icon;
+					fillMode: Image.PreserveAspectFit;
+					visible: model.icon;
+					radius: width / 2;
+				}
+
+				Item {
+					width: height;
+					height: keyText.height;
+					visible: model.color;
+
+					Rectangle {
+						width: 80%;
+						height: 80%;
+						anchors.centerIn: parent;
+						color: model.color;
+						radius: width / 2;
+					}
+				}
+			}
+		}
+	}
+
+	Text {
+		width: 100%;
+		horizontalAlignment: Text.AlignHCenter;
+		text: "TILES";
+		color: colorTheme.accentTextColor;
+	}
+
 	ListView {
 		id: tileView;
-		width: 70%;
-		height: 100%;
+		width: 65%;
+		height: 50%;
+		focus: false;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		model: ListModel {
 			ListElement {
@@ -52,7 +124,7 @@ Item {
 		}
 		delegate: Item {
 			width: 100%;
-			height: 8%;
+			height: 15%;
 
 			Image {
 				width: parent.height;
@@ -68,7 +140,7 @@ Item {
 
 			Text {
 				x: parent.height + 10;
-				y: 30%;
+				y: 32%;
 				width: parent.width - x;
 				color: colorTheme.textColor;
 				text: model.text;
