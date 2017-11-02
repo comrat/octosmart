@@ -112,6 +112,13 @@ Item {
 				"file": "examples/2048/output.ch8",
 				"authors": ["AKouZ1"],
 				"options": {
+					"keyMap": {
+						'Select': '0', // x (0)
+						'Up': '5', // w (5)
+						'Left': '7', // a (7)
+						'Down': '8', // s (8)
+						'Right': '9' // d (9)
+					},
 					"tickrate": 200,
 					"fillColor": "#4080ff",
 					"fillColor2": "#FF6600",
@@ -201,6 +208,18 @@ Item {
 				"manual": "manuals.CivManual",
 				"authors": ["Tann"],
 				"options": {
+					"keyMap": {
+						'1': '1', // 1 (1)
+						'2': '2', // 2 (2)
+						'3': '3', // 3 (3)
+						'Red': '4', // q (4)
+						'Up': '5', // w (5)
+						'Green': '6', // e (6)
+						'Left': '7', // a (7)
+						'Down': '8', // s (8)
+						'Right': '9', // d (9)
+						'4': 'c' // 4 (C)
+					},
 					"tickrate": 100,
 					"fillColor": "#754D27",
 					"fillColor2": "#738C3A",
