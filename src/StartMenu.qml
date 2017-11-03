@@ -12,26 +12,32 @@ Item {
 
 	ListView {
 		id: menuList;
+		x: 3;
 		y: 20%;
-		width: 30%;
+		width: 10%;
 		height: 80%;
+		focus: true;
 		model: ListModel {
-			ListElement { menu: "games"; icon: "res/menu/games.png"; }
-			ListElement { menu: "settings"; icon: "res/menu/settings.png"; }
-			ListElement { menu: "help"; icon: "res/menu/help.png"; }
+			ListElement { menu: "games"; icon: "games.png"; }
+			ListElement { menu: "settings"; icon: "settings.png"; }
+			ListElement { menu: "help"; icon: "acknowledge.png"; }
 		}
 		delegate: WebItem {
 			width: 100%;
-			height: 50;
+			height: width;
 			border.width: activeFocus ? 2 : 0;
 			border.color: colorTheme.accentPanelColor;
 
 			ImageMixin {
-				width: 100%;
-				height: 100%;
-				source: model.icon;
+				x: 15%;
+				y: 15%;
+				width: 70%;
+				height: 70%;
+				source: "res/menu/" + (parent.focused ? "active_" : "") + model.icon;
 			}
 		}
+
+		onRightPressed: { gameList.setFocus() }
 	}
 
 	PageStack {
@@ -97,6 +103,8 @@ Item {
 				onLeftPressed: { gameList.setFocus() }
 			}
 		}
+
+		onLeftPressed: { menuList.setFocus() }
 	}
 
 	HelpPage { id: menuHelpPage; }
@@ -452,5 +460,7 @@ Item {
 
 		gameList.model.clear()
 		gameList.model.append(data)
+
+		gameList.setFocus()
 	}
 }
