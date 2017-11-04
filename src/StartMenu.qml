@@ -37,10 +37,13 @@ Item {
 			}
 		}
 
+		onCurrentIndexChanged: { appPages.currentIndex = value }
+
 		onRightPressed: { gameList.setFocus() }
 	}
 
 	PageStack {
+		id: appPages;
 		x: 10%;
 		y: 20%;
 		width: 80%;
@@ -102,6 +105,20 @@ Item {
 				onOpenHelp: { menuHelpPage.show(gameList.model.get(gameList.currentIndex).manual) }
 				onLeftPressed: { gameList.setFocus() }
 			}
+		}
+
+		Item {
+			y: 2;
+			x: 2;
+			width: 100%;
+			height: 100%;
+		}
+
+		Item {
+			y: 2;
+			x: 2;
+			width: 100%;
+			height: 100%;
 		}
 
 		onLeftPressed: { menuList.setFocus() }
