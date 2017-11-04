@@ -7,6 +7,7 @@ Item {
 
 	ListView {
 		id: gameList;
+		x: 4;
 		width: 45%;
 		height: 100%;
 		positionMode: ListView.Center;

@@ -5,7 +5,7 @@ WebItem {
 	height: 50;
 	border.width: activeFocus ? 2 : 0;
 	border.color: colorTheme.accentPanelColor;
-	color: activeFocus ? colorTheme.backgroundColor : colorTheme.panelColor;
+	color: colorTheme.panelColor;
 
 	FocusOnHoverMixin { }
 
