@@ -4,6 +4,7 @@ Item {
 	signal openHelp;
 	width: 100%;
 	height: 100%;
+	focus: true;
 
 	ListView {
 		id: gameList;

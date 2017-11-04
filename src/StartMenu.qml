@@ -85,7 +85,10 @@ Item {
 
 		onCurrentIndexChanged: { appPages.currentIndex = value }
 
-		onRightPressed: { gamesPage.setFocus() }
+		onRightPressed: {
+			if (appPages.children[appPages.currentIndex].focus)
+				appPages.setFocus()
+		}
 	}
 
 	HelpPage { id: menuHelpPage; }
