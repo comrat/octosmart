@@ -194,11 +194,17 @@ Item {
 				}
 			}, {
 				"title" : "DVN8",
-				"description" : "WASD to move UP/Down/Left/Right",
+				"description" : "Play the game with the text!<br><span style='color: #00f;'>https://systemlogoff.com/share/DVN8/index.html</span><br>The location of all the text the 'read ##' tells you about, with the game in a handy frame for ease of use. Remember to click the game between reads!",
 				"screenshot": "examples/dvn8/logo.png",
 				"file": "examples/dvn8/output.ch8",
 				"authors": ["SysL"],
 				"options": {
+					"keyMap": {
+						'Up': '5', // w (5)
+						'Left': '7', // a (7)
+						'Down': '8', // s (8)
+						'Right': '9' // d (9)
+					},
 					"tickrate": 20,
 					"fillColor": "#1f1f1f",
 					"fillColor2": "#000000",
