@@ -58,18 +58,14 @@ Item {
 			onOpenHelp(manual): { menuHelpPage.show(manual) }
 		}
 
-		Item {
+		SettingsPage {
 			y: 2;
 			x: 2;
-			width: 100%;
-			height: 100%;
 		}
 
-		Item {
+		AknowladgePage {
 			y: 2;
 			x: 2;
-			width: 100%;
-			height: 100%;
 		}
 
 		onLeftPressed: { menuList.setFocus() }
