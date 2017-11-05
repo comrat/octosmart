@@ -42,11 +42,6 @@ Item {
 			onOpenHelp(manual): { menuHelpPage.show(manual) }
 		}
 
-		SettingsPage {
-			y: 2;
-			x: 2;
-		}
-
 		AknowladgePage {
 			y: 2;
 			x: 2;
@@ -64,7 +59,6 @@ Item {
 		focus: true;
 		model: ListModel {
 			ListElement { menu: "games"; icon: "games.png"; }
-			ListElement { menu: "settings"; icon: "settings.png"; }
 			ListElement { menu: "help"; icon: "acknowledge.png"; }
 		}
 		delegate: WebItem {
