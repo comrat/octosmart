@@ -325,6 +325,7 @@ Item {
 				"description" : "All of her life Amy has lived in the darkness, in the safety of the caverns her village has called home. Legends tell of a crystal above that will grant anyone a single wish, but no one has seen the sky in the generations. Enraptured by these tales, she packs for a journey to see for herself if these stories are true. Armed with only a few spears and rations for the climb, she sets off skyward to create a legend of her own...",
 				"screenshot": "examples/skyward/logo.png",
 				"file": "examples/skyward/output.ch8",
+				"manual": "manuals.SkywardManual",
 				"authors": ["jackiekircher", "Tann"],
 				"options": {
 					"tickrate": 1000,
