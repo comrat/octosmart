@@ -57,6 +57,7 @@ Item {
 		width: 10%;
 		height: 80%;
 		focus: true;
+		keyNavigationWraps: false;
 		model: ListModel {
 			ListElement { menu: "games"; icon: "games.png"; }
 			ListElement { menu: "help"; icon: "acknowledge.png"; }

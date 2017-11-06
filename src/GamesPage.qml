@@ -243,6 +243,13 @@ Item {
 				"file": "examples/kesha_was_ninja/output.ch8",
 				"authors": ["whoozle", "gazay"],
 				"options": {
+					"keyMap": {
+						'Up': '5', // w (5)
+						'Left': '7', // a (7)
+						'Down': '8', // s (8)
+						'Right': '9', // d (9)
+						'Select': 'f'  // v (F)
+					},
 					"tickrate": 1000,
 					"fillColor": "#b22d10",
 					"fillColor2": "#10b258",
@@ -288,7 +295,15 @@ Item {
 				"file": "examples/planet_of_the_eights/planet.ch8",
 				"authors": ["comrat"],
 				"startKey": "Down",
+				"manual": "manuals.PlanetManual",
 				"options": {
+					"keyMap": {
+						'Up': '5', // w (5)
+						'Left': '7', // a (7)
+						'Down': '8', // s (8)
+						'Right': '9', // d (9)
+						'Select': 'd' // r (D)
+					},
 					"tickrate": 200,
 					"fillColor": "#FF00FF",
 					"fillColor2": "#00FFFF",
