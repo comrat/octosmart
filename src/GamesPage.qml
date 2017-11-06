@@ -68,6 +68,7 @@ Item {
 				"screenshot": "examples/2048/logo.png",
 				"file": "examples/2048/output.ch8",
 				"authors": ["AKouZ1"],
+				"startKey": "Select",
 				"options": {
 					"keyMap": {
 						'Select': '0', // x (0)
@@ -350,6 +351,7 @@ Item {
 				"screenshot": "examples/planet_of_the_eights/planet.png",
 				"file": "examples/planet_of_the_eights/planet.ch8",
 				"authors": ["comrat"],
+				"startKey": "Down",
 				"options": {
 					"tickrate": 200,
 					"fillColor": "#FF00FF",
