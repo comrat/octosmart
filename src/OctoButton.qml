@@ -19,6 +19,6 @@ WebItem {
 		font.pixelSize: 27;
 	}
 
-	onCliced: { this.pressed() }
+	onClicked: { this.pressed() }
 	onSelectPressed: { this.pressed() }
 }
