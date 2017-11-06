@@ -67,6 +67,7 @@ Item {
 				"description" : "2048 game which based on its original game.",
 				"screenshot": "examples/2048/logo.png",
 				"file": "examples/2048/output.ch8",
+				"manual": "manuals.Manual2048",
 				"authors": ["AKouZ1"],
 				"startKey": "Select",
 				"options": {
