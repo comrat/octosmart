@@ -22,15 +22,6 @@ WebItem {
 		}
 
 		ControlItem {
-			icon: "res/controls/" + (emulatorControlsProto.showGrid ? "no_grid.png" : "grid.png");
-
-			onClicked: {
-				emulatorControlsProto.showGrid = !emulatorControlsProto.showGrid
-				emulatorControlsProto.keepAlive()
-			}
-		}
-
-		ControlItem {
 			icon: "res/controls/help.png";
 			visible: emulatorControlsProto.showHelp;
 
