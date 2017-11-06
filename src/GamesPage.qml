@@ -165,6 +165,7 @@ Item {
 				"file": "examples/civiliz8n/output.ch8",
 				"manual": "manuals.CivManual",
 				"authors": ["Tann"],
+				"hint": "Press '1' - '4' remote key to choose game mode",
 				"options": {
 					"keyMap": {
 						'1': '1', // 1 (1)
@@ -329,6 +330,7 @@ Item {
 				"screenshot": "examples/octopeg/logo.png",
 				"file": "examples/octopeg/output.ch8",
 				"authors": ["Mastigophoran"],
+				"hint": "Press any remote key to start",
 				"options": {
 					"tickrate": 200,
 					"fillColor": "#acd5ff",
@@ -396,6 +398,7 @@ Item {
 				"screenshot": "examples/t8nks/logo.png",
 				"file": "examples/t8nks/output.ch8",
 				"authors": ["your name here"],
+				"hint": "Press any remote key to start",
 				"options": {
 					"tickrate": 1000,
 					"fillColor": "#554422",

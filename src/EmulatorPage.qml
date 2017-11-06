@@ -1,5 +1,6 @@
 Item {
 	signal close;
+	property string hint;
 	property string startKey;
 	width: 100%;
 	height: 100%;
@@ -62,7 +63,7 @@ Item {
 	}
 
 	onKeyPressed: {
-		if (this.startKey && this.startKey == key)
+		if (this.startKey && this.startKey == key || this.hint)
 			hintText.visible = false
 		return false
 	}
@@ -70,8 +71,12 @@ Item {
 	loadApp(app): {
 		this._selectedApp = app
 		controls.showHelp = app.manual
+		this.hint = app.hint
 		this.startKey = app.startKey
-		if (app.startKey) {
+		if (app.hint) {
+			hintText.text = app.hint
+			hintText.visible = true
+		} else if (app.startKey) {
 			hintText.text = "Press '" + this._keyMap[app.startKey] + "' to start"
 			hintText.visible = true
 		} else {
