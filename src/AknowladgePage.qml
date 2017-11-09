@@ -22,7 +22,7 @@ Column {
 	}
 
 	ListView {
-		x: 35%;
+		x: 30%;
 		width: 50%;
 		height: contentHeight;
 		model: ListModel {

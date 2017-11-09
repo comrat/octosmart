@@ -5,6 +5,6 @@ Object {
 	property color accentTextColor: "#0ff";
 	property color passiveTextColor: "#aaa";
 
-	property color panelColor: "#020202";
+	property color panelColor: "#060606";
 	property color accentPanelColor: "#ff83ff";
 }
