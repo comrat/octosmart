@@ -327,6 +327,7 @@ Item {
 				"file": "examples/skyward/output.ch8",
 				"manual": "manuals.SkywardManual",
 				"authors": ["jackiekircher", "Tann"],
+				"startKey": "1",
 				"options": {
 					"tickrate": 1000,
 					"fillColor": "#4b636f",
@@ -350,6 +351,7 @@ Item {
 				"file": "examples/t8nks/output.ch8",
 				"authors": ["your name here"],
 				"hint": "Press any remote key to start",
+				"manual": "manuals.T8nksManual",
 				"options": {
 					"tickrate": 1000,
 					"fillColor": "#554422",
