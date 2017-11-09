@@ -77,7 +77,8 @@ Item {
 			hintText.text = app.hint
 			hintText.visible = true
 		} else if (app.startKey) {
-			hintText.text = "Press '" + this._keyMap[app.startKey] + "' to start"
+			var keyText = this._keyMap[app.startKey] ? this._keyMap[app.startKey] : app.startKey
+			hintText.text = "Press '" + keyText + "' to start"
 			hintText.visible = true
 		} else {
 			hintText.visible = false
