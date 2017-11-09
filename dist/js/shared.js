@@ -94,13 +94,7 @@ function arrayEqual(a, b) {
 }
 
 function getColor(id) {
-	switch(id) {
-		case 0: return emulator.backgroundColor;
-		case 1: return emulator.fillColor;
-		case 2: return emulator.fillColor2;
-		case 3: return emulator.blendColor;
-	}
-	throw "invalid color: " + id;
+	return [emulator.backgroundColor, emulator.fillColor, emulator.fillColor2, emulator.blendColor][id]
 }
 
 function renderDisplay(emulator) {
