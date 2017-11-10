@@ -6,3 +6,4 @@
 /*** @using { manuals.OctopegManual } **/
 /*** @using { manuals.KeshaManual } **/
 /*** @using { manuals.KeshaWasNinjaManual } **/
+/*** @using { manuals.DvnManual } **/

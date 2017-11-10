@@ -135,6 +135,7 @@ Item {
 				"screenshot": "examples/dvn8/logo.png",
 				"file": "examples/dvn8/output.ch8",
 				"authors": ["SysL"],
+				"manual": "manuals.DvnManual",
 				"options": {
 					"keyMap": {
 						'Up': '5', // w (5)
