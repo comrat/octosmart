@@ -131,7 +131,7 @@ Item {
 				}
 			}, {
 				"title" : "DVN8",
-				"description" : "Play the game with the text!<br><span style='color: #00f;'>https://systemlogoff.com/share/DVN8/index.html</span><br>The location of all the text the 'read ##' tells you about, with the game in a handy frame for ease of use. Remember to click the game between reads!",
+				"description" : "Play the game with the text!<br><span style='color: #0ff;'>https://systemlogoff.com/share/DVN8/index.html</span><br>The location of all the text the 'read ##' tells you about, with the game in a handy frame for ease of use. Remember to click the game between reads!",
 				"screenshot": "examples/dvn8/logo.png",
 				"file": "examples/dvn8/output.ch8",
 				"authors": ["SysL"],
@@ -163,6 +163,7 @@ Item {
 				"screenshot": "examples/kesha_was_bird/logo.png",
 				"file": "examples/kesha_was_bird/kesha1.bin",
 				"authors": ["whoozle", "gazay"],
+				"manual": "manuals.KeshaManual",
 				"options": {
 					"keyMap": {
 						'0': '0', // x (0)
@@ -203,6 +204,7 @@ Item {
 				"screenshot": "examples/kesha_was_biird/logo.png",
 				"file": "examples/kesha_was_biird/kesha2.bin",
 				"authors": ["whoozle", "gazay"],
+				"manual": "manuals.KeshaManual",
 				"options": {
 					"keyMap": {
 						'0': '0', // x (0)

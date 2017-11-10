@@ -4,3 +4,4 @@
 /*** @using { manuals.SkywardManual } **/
 /*** @using { manuals.T8nksManual } **/
 /*** @using { manuals.OctopegManual } **/
+/*** @using { manuals.KeshaManual } **/
