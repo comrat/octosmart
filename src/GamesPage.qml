@@ -245,6 +245,7 @@ Item {
 				"screenshot": "examples/kesha_was_ninja/logo.png",
 				"file": "examples/kesha_was_ninja/output.ch8",
 				"authors": ["whoozle", "gazay"],
+				"manual": "manuals.KeshaWasNinjaManual",
 				"options": {
 					"keyMap": {
 						'Up': '5', // w (5)
