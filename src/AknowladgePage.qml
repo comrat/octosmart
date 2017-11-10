@@ -18,7 +18,7 @@ Column {
 		horizontalAlignment: Text.AlignHCenter;
 		color: colorTheme.accentTextColor;
 		font.pixelSize: 28;
-		text: "Thank to <b>JohnEarnest</b> for 'Octo' project (chip8 js emulator)<br><br>Thank to all chip8 programmers:<br>";
+		text: "Thank to <b>JohnEarnest</b> for 'Octo' project (chip8 envoirement)<br>Thank to whoozle for performance optimization<br><br>Thank to all chip8 programmers:<br>";
 	}
 
 	ListView {
