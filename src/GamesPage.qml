@@ -273,6 +273,7 @@ Item {
 				"file": "examples/octopeg/output.ch8",
 				"authors": ["Mastigophoran"],
 				"hint": "Press any remote key to start",
+				"manual": "manuals.OctopegManual",
 				"options": {
 					"tickrate": 200,
 					"fillColor": "#acd5ff",
