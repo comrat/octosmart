@@ -246,7 +246,7 @@ function render() {
 	}
 	renderDisplay(emulator);
 	if (emulator.halted) { return; }
-	document.getElementById("emulator").style.backgroundColor = (emulator.st > 0) ? emulator.buzzColor : emulator.quietColor;
+	document.getElementById("emulatorBackground").style.backgroundColor = (emulator.st > 0) ? emulator.buzzColor : emulator.quietColor;
 }
 
 // var emulatorKeyMap = {

@@ -1,4 +1,4 @@
-Item {
+Rectangle {
 	signal close;
 	property string hint;
 	property string startKey;
@@ -98,5 +98,6 @@ Item {
 			'Down': "Down",
 			'Up': "Up"
 		}
+		this.element.dom.setAttribute("id", "emulatorBackground")
 	}
 }
