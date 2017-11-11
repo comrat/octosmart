@@ -138,6 +138,7 @@ Item {
 				"manual": "manuals.DvnManual",
 				"options": {
 					"keyMap": {
+						'Select': '2', // 2 (2)
 						'Up': '5', // w (5)
 						'Left': '7', // a (7)
 						'Down': '8', // s (8)
