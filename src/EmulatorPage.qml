@@ -10,7 +10,7 @@ Rectangle {
 		property bool loading;
 		anchors.top: parent.top;
 		anchors.horizontalCenter: parent.horizontalCenter;
-		anchors.topMargin: !controls.showGrid ? (parent.height - height) / 2 : 10;
+		anchors.topMargin: (parent.height - height) / 2;
 		visible: !loading;
 
 		run(data): {
@@ -41,10 +41,12 @@ Rectangle {
 
 		onClose: { this.parent.close() }
 		onOpenHelp: { helpPage.show(this.parent._selectedApp.manual) }
+		onShowGridChanged: { hintText.visible = false }
 	}
 
 	KeyGrid {
-		y: 540;
+		id: keyList;
+		y: 640;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		visible: controls.showGrid;
 	}
@@ -70,6 +72,10 @@ Rectangle {
 
 	loadApp(app): {
 		this._selectedApp = app
+		controls.showGrid = false
+
+		keyList.fill(app.options.keyMap)
+
 		controls.showHelp = app.manual
 		this.hint = app.hint
 		this.startKey = app.startKey
