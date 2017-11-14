@@ -8,7 +8,6 @@ ListView {
 	model: ListModel { }
 
 	fill(data): {
-		this.model.clear()
 		for (var i in data) {
 			var row = this._keyMap[i] ? this._keyMap[i] : { }
 			row.key = i

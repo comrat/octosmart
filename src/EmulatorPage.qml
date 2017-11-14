@@ -96,6 +96,11 @@ Rectangle {
 			resource.url = app.file
 	}
 
+	onRecursiveVisibleChanged: {
+		if (!value)
+			keyList.model.clear()
+	}
+
 	onCompleted: {
 		this._keyMap = {
 			'Select': "OK",
