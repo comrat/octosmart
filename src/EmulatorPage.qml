@@ -44,7 +44,7 @@ Rectangle {
 		onShowGridChanged: { hintText.visible = false }
 	}
 
-	KeyGrid {
+	KeyList {
 		id: keyList;
 		y: 640;
 		anchors.horizontalCenter: parent.horizontalCenter;
