@@ -1,4 +1,5 @@
 ListView {
+	signal keepAlive;
 	width: contentWidth;
 	height: 40;
 	spacing: 2;
@@ -23,6 +24,8 @@ ListView {
 			var upEvent = new KeyboardEvent("keyup", { bubbles : true });
 			Object.defineProperty(upEvent, 'keyCode', { get : function() { return keyCode; } })
 			document.dispatchEvent(upEvent);
+
+			this.parent.keepAlive()
 		}
 	}
 

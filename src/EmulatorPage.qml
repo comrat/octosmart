@@ -44,11 +44,14 @@ Rectangle {
 		onShowGridChanged: { hintText.visible = false }
 	}
 
+	//TODO: maybe move it to controls?
 	KeyList {
 		id: keyList;
 		y: 640;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		visible: controls.showGrid;
+
+		onKeepAlive: { controls.keepAlive() }
 	}
 
 	HelpPage { id: helpPage; }
