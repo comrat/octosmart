@@ -1,4 +1,5 @@
 WebItem {
+	signal mouseUp;
 	width: 50;
 	height: parent.height;
 	color: colorTheme.panelColor;
@@ -31,5 +32,10 @@ WebItem {
 		color: model.color ? model.color : "#0000";
 		visible: model.color;
 		radius: width / 2;
+	}
+
+	onCompleted: {
+		var self = this
+		this.element.on('mouseup', function() { self.mouseUp() }.bind(this))
 	}
 }

@@ -6,25 +6,17 @@ ListView {
 	orientation: ListView.Horizontal;
 	model: ListModel { }
 	delegate: KeyButton {
+		onMouseUp: {
+			var row = this.parent.model.get(this._local.model.index)
+			var emulatorKey = window.keymap[this.parent._emulatorKeys[row.code]]
+			if (emulatorKey in window.emulator.keys)
+				window.keyUp({ keyCode: emulatorKey });
+		}
+
 		onClicked: {
 			var row = this.parent.model.get(this._local.model.index)
-			var key = row.key
-			var keyCode
-			var codes = qml.core.keyCodes
-			for (var i in qml.core.keyCodes) {
-				if (codes[i] == key) {
-					keyCode = i
-					break
-				}
-			}
-			var event = new KeyboardEvent("keydown", { bubbles : true });
-			Object.defineProperty(event, 'keyCode', { get : function() { return keyCode; } })
-			document.dispatchEvent(event);
-
-			var upEvent = new KeyboardEvent("keyup", { bubbles : true });
-			Object.defineProperty(upEvent, 'keyCode', { get : function() { return keyCode; } })
-			document.dispatchEvent(upEvent);
-
+			var emulatorKey = window.keymap[this.parent._emulatorKeys[row.code]]
+			window.keyDown({ keyCode: emulatorKey })
 			this.parent.keepAlive()
 		}
 	}
@@ -33,6 +25,7 @@ ListView {
 		for (var i in data) {
 			var row = this._keyMap[i] ? this._keyMap[i] : { }
 			row.key = i
+			row.code = data[i]
 			this.model.append(row)
 		}
 	}
@@ -48,6 +41,25 @@ ListView {
 			'Green': { 'color': 'green' },
 			'Yellow': { 'color': 'yellow' },
 			'Blue': { 'color': 'blue' }
+		}
+
+		this._emulatorKeys = {
+			"0": 0, // x
+			"1": 1, // 1
+			"2": 2, // 2
+			"3": 3, // 3
+			"4": 4, // q
+			"5": 5, // w
+			"6": 6, // e
+			"7": 7, // a
+			"8": 8, // s
+			"9": 9, // d
+			"A": 10, // z
+			"B": 11, // c
+			"C": 12, // 4
+			"D": 13, // r
+			"E": 14, // f
+			"F": 15  // v
 		}
 	}
 }
