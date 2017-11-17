@@ -270,6 +270,13 @@ Item {
 				"hint": "Press any remote key to start",
 				"manual": "manuals.OctopegManual",
 				"options": {
+					"keyMap": {
+						'Select': '6', // e (6)
+						'Up': '5', // w (5)
+						'Down': '8', // s (8)
+						'Left': '7', // a (7)
+						'Right': '9' // d (9)
+					},
 					"tickrate": 200,
 					"fillColor": "#acd5ff",
 					"fillColor2": "#000000",
@@ -325,6 +332,13 @@ Item {
 				"authors": ["jackiekircher", "Tann"],
 				"startKey": "1",
 				"options": {
+					"keyMap": {
+						'1': '1', // 1 (1)
+						'Up': '5', // w (5)
+						'Left': '7', // a (7)
+						'Down': '8', // s (8)
+						'Right': '9' // d (9)
+					},
 					"tickrate": 1000,
 					"fillColor": "#4b636f",
 					"fillColor2": "#af2d3d",
@@ -349,6 +363,16 @@ Item {
 				"hint": "Press any remote key to start",
 				"manual": "manuals.T8nksManual",
 				"options": {
+					"keyMap": {
+						'Select': '6', // e (6)
+						'Up': '5', // w (5)
+						'Left': '7', // a (7)
+						'Down': '8', // s (8)
+						'Right': '9', // d (9)
+						'1': '1', // 1 (1)
+						'2': '2', // 2 (2)
+						'3': '3' // 3 (3)
+					},
 					"tickrate": 1000,
 					"fillColor": "#554422",
 					"fillColor2": "#456543",
