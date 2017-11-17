@@ -13,7 +13,7 @@ ListView {
 				window.keyUp({ keyCode: emulatorKey });
 		}
 
-		onClicked: {
+		onMouseDown: {
 			var row = this.parent.model.get(this._local.model.index)
 			var emulatorKey = window.keymap[this.parent._emulatorKeys[row.code]]
 			window.keyDown({ keyCode: emulatorKey })

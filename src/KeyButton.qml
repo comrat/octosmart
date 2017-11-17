@@ -1,5 +1,6 @@
 WebItem {
 	signal mouseUp;
+	signal mouseDown;
 	width: 50;
 	height: parent.height;
 	color: colorTheme.panelColor;
@@ -37,5 +38,6 @@ WebItem {
 	onCompleted: {
 		var self = this
 		this.element.on('mouseup', function() { self.mouseUp() }.bind(this))
+		this.element.on('mousedown', function() { self.mouseDown() }.bind(this))
 	}
 }
