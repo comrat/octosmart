@@ -32,6 +32,8 @@ Item {
 				color: colorTheme.accentTextColor;
 				font.pixelSize: 27;
 			}
+
+			onClicked: { info.play() }
 		}
 
 		updateCurrentAppInfo: {
