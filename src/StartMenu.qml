@@ -70,6 +70,8 @@ Item {
 			color: focused ? colorTheme.panelColor : "#0000";
 			opacity: focused ? 1.0 : 0.5;
 
+			FocusOnHoverMixin { }
+
 			ImageMixin {
 				x: 15%;
 				y: 15%;
