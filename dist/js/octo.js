@@ -146,10 +146,8 @@ function share() {
 		if (xhr.readyState !== 4) { return; }
 		var result = JSON.parse(xhr.responseText);
 		if (xhr.status === 403) {
-			alert(result.message);
 		}
 		else if (xhr.status !== 200 && xhr.status !== 201) {
-			alert("HTTP Error "+ xhr.status + ' - ' + xhr.statusText);
 		}
 		else {
 			window.location.href = window.location.href.replace(/(index.html|\?gist=.*)*$/, 'index.html?gist=' + result.id);
