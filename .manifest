@@ -1,5 +1,5 @@
 {
-	"platforms": ["web", "webos", "tizen"],
+	"platforms": ["web", "webos", "tizen", "androidtv"],
 	"properties": {
 		"title": "octosmart",
 		"author": { "name": "Alexey Pobery", "email": "poberyaa@gmail.com", "site": "https://github.com/comrat" },
