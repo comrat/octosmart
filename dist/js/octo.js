@@ -739,13 +739,16 @@ var pixel = [];
 for(var z = 0; z < 64; z++) { pixel[z] = 0; }
 
 var spriteCanvas = document.getElementById("draw");
-spriteCanvas.addEventListener("mousemove", drag, false);
-spriteCanvas.addEventListener("mousedown", pressDraw, false);
-spriteCanvas.addEventListener("mouseup"  , release, false);
-spriteCanvas.oncontextmenu = function(event) { drag(event); return false; };
-spriteCanvas.addEventListener("mouseout", release, false);
+if (spriteCanvas) {
+	spriteCanvas.addEventListener("mousemove", drag, false);
+	spriteCanvas.addEventListener("mousedown", pressDraw, false);
+	spriteCanvas.addEventListener("mouseup"  , release, false);
+	spriteCanvas.oncontextmenu = function(event) { drag(event); return false; };
+	spriteCanvas.addEventListener("mouseout", release, false);
+}
 var spriteEditorPalette = document.getElementById("spriteEditorPalette");
-spriteEditorPalette.addEventListener("click", clickPalette, false);
+if (spriteEditorPalette)
+	spriteEditorPalette.addEventListener("click", clickPalette, false);
 
 ////////////////////////////////////
 //
