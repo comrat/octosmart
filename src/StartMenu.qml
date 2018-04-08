@@ -72,7 +72,7 @@ Item {
 
 			FocusOnHoverMixin { }
 
-			ImageMixin {
+			Image {
 				x: 15%;
 				y: 15%;
 				width: 70%;
