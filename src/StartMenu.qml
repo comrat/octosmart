@@ -67,6 +67,7 @@ Item {
 			height: width;
 			border.width: activeFocus ? 2 : 0;
 			border.color: colorTheme.accentPanelColor;
+			border.type: Border.Outer;
 			color: focused ? colorTheme.panelColor : "#0000";
 			opacity: focused ? 1.0 : 0.5;
 

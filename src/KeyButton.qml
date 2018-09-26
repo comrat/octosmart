@@ -6,6 +6,7 @@ WebItem {
 	color: colorTheme.panelColor;
 	border.color: colorTheme.accentPanelColor;
 	border.width: hover ? 2 : 0;
+	border.type: Border.Outer;
 
 	Text {
 		width: 100%;
