@@ -767,14 +767,14 @@ function buttonUp(key) {
 
 for(var k = 0; k <= 0xF; k++) {
 	var hex = k.toString(16).toUpperCase();
-	var button = document.getElementById("0x" + hex);
-	button.onmousedown = buttonDn.bind(undefined, k);
-	button.onmouseup   = buttonUp.bind(undefined, k);
-	button.onmouseout  = buttonUp.bind(undefined, k);
+	// var button = document.getElementById("0x" + hex);
+	// button.onmousedown = buttonDn.bind(undefined, k);
+	// button.onmouseup   = buttonUp.bind(undefined, k);
+	// button.onmouseout  = buttonUp.bind(undefined, k);
 
-	button.ontouchstart = buttonDn.bind(undefined, k);
-	button.ontouchenter = buttonDn.bind(undefined, k);
-	button.ontouchleave = buttonUp.bind(undefined, k);
+	// button.ontouchstart = buttonDn.bind(undefined, k);
+	// button.ontouchenter = buttonDn.bind(undefined, k);
+	// button.ontouchleave = buttonUp.bind(undefined, k);
 }
 
 function toggleKeypad() {
@@ -862,120 +862,120 @@ function formatAliases(id) {
 }
 
 function haltBreakpoint(breakName) {
-	var button = document.getElementById("continueButton");
-	var regs   = document.getElementById("registerView");
-	button.style.display = "inline";
-	regs.style.display = "inline";
-	var regdump =
-		"<span>tick count: " + emulator.tickCounter + "</span><br>" +
-		"<span>breakpoint: " + breakName + "</span><br>" +
-		"<span onClick=\"cycleNumFormat('pc');\">pc := " + numericFormat(emulator.pc, regNumFormat["pc"]) + getLabel(emulator.pc) + "</span><br>" +
-		"<span onClick=\"cycleNumFormat('i');\">i := " + numericFormat(emulator.i, regNumFormat["i"]) + getLabel(emulator.i) + "</span><br>";
-	for(var k = 0; k <= 0xF; k++) {
-		var hex = k.toString(16).toUpperCase();
-		regdump += "<span onClick=\"cycleNumFormat('"+ k + "');\">v" + hex + " := " + numericFormat(emulator.v[k], regNumFormat[k]) + formatAliases(k) + "</span><br>";
-	}
+	// var button = document.getElementById("continueButton");
+	// var regs   = document.getElementById("registerView");
+	// button.style.display = "inline";
+	// regs.style.display = "inline";
+	// var regdump =
+	// 	"<span>tick count: " + emulator.tickCounter + "</span><br>" +
+	// 	"<span>breakpoint: " + breakName + "</span><br>" +
+	// 	"<span onClick=\"cycleNumFormat('pc');\">pc := " + numericFormat(emulator.pc, regNumFormat["pc"]) + getLabel(emulator.pc) + "</span><br>" +
+	// 	"<span onClick=\"cycleNumFormat('i');\">i := " + numericFormat(emulator.i, regNumFormat["i"]) + getLabel(emulator.i) + "</span><br>";
+	// for(var k = 0; k <= 0xF; k++) {
+	// 	var hex = k.toString(16).toUpperCase();
+	// 	regdump += "<span onClick=\"cycleNumFormat('"+ k + "');\">v" + hex + " := " + numericFormat(emulator.v[k], regNumFormat[k]) + formatAliases(k) + "</span><br>";
+	// }
 
-	regdump += "<br>inferred stack trace:<br>";
-	for(var x = 0; x < emulator.r.length; x++) {
-		regdump += hexFormat(emulator.r[x]) + getLabel(emulator.r[x]) + "<br>";
-	}
+	// regdump += "<br>inferred stack trace:<br>";
+	// for(var x = 0; x < emulator.r.length; x++) {
+	// 	regdump += hexFormat(emulator.r[x]) + getLabel(emulator.r[x]) + "<br>";
+	// }
 
-	var dbg = emulator.metadata.dbginfo;
+	// var dbg = emulator.metadata.dbginfo;
 
-	// scan backwards & forwards in memory as long as addrs map to nearby lines
-	var pcline = dbg.locs[emulator.pc];
-	var memlo = emulator.pc, memhi = emulator.pc;
-	while (dbg.locs[memlo - 1] > pcline - 8) memlo--;
-	while (dbg.locs[memhi + 1] < pcline + 8) memhi++;
+	// // scan backwards & forwards in memory as long as addrs map to nearby lines
+	// var pcline = dbg.locs[emulator.pc];
+	// var memlo = emulator.pc, memhi = emulator.pc;
+	// while (dbg.locs[memlo - 1] > pcline - 8) memlo--;
+	// while (dbg.locs[memhi + 1] < pcline + 8) memhi++;
 
-	var ind = memlo;
-	regdump += '<br><table class="debugger"><tr><td>addr</td><td>data</td><td style="width:40em">source</td></tr>\n';
-	for (var line = dbg.locs[memlo]; line <= dbg.locs[memhi]; line++) {
-		if (dbg.lines[line].match(/^\s*$/)) continue;  // skip empty lines
-		if (dbg.locs[ind] == line) {
-			regdump += dbg.locs[ind] == pcline ? '<tr class="debugger-searchline">' : '<tr>';
-			regdump += "<td>" + hexFormat(ind).slice(2) + "</td><td>";
-			for (; dbg.locs[ind] == line; ind++)
-				regdump += hexFormat(emulator.m[ind]).slice(2);
-			regdump += "</td>";
-		} else {
-			regdump += "<tr><td></td><td></td>"
-		}
-		regdump += "<td><pre>" + escapeHtml(dbg.lines[line]) + "</pre></td></tr>\n";
-	}
+	// var ind = memlo;
+	// regdump += '<br><table class="debugger"><tr><td>addr</td><td>data</td><td style="width:40em">source</td></tr>\n';
+	// for (var line = dbg.locs[memlo]; line <= dbg.locs[memhi]; line++) {
+	// 	if (dbg.lines[line].match(/^\s*$/)) continue;  // skip empty lines
+	// 	if (dbg.locs[ind] == line) {
+	// 		regdump += dbg.locs[ind] == pcline ? '<tr class="debugger-searchline">' : '<tr>';
+	// 		regdump += "<td>" + hexFormat(ind).slice(2) + "</td><td>";
+	// 		for (; dbg.locs[ind] == line; ind++)
+	// 			regdump += hexFormat(emulator.m[ind]).slice(2);
+	// 		regdump += "</td>";
+	// 	} else {
+	// 		regdump += "<tr><td></td><td></td>"
+	// 	}
+	// 	regdump += "<td><pre>" + escapeHtml(dbg.lines[line]) + "</pre></td></tr>\n";
+	// }
 
-	regs.innerHTML = regdump;
-	emulator.breakpoint = true;
-	curBreakName = breakName;
+	// regs.innerHTML = regdump;
+	// emulator.breakpoint = true;
+	// curBreakName = breakName;
 }
 
 function haltProfiler(breakName) {
-	var button = document.getElementById("continueButton");
-	var regs   = document.getElementById("registerView");
-	button.style.display = "inline";
-	regs.style.display = "inline";
-	var regdump =
-		"<span>tick count: " + emulator.tickCounter + "</span><br>" +
-		"<span>breakpoint: " + breakName + "</span><br>" +
-		"<span onClick=\"cycleNumFormat('pc');\">pc := " +
-		numericFormat(emulator.pc, regNumFormat["pc"]) +
-		getLabel(emulator.pc) + "</span><br>";
+	// var button = document.getElementById("continueButton");
+	// var regs   = document.getElementById("registerView");
+	// button.style.display = "inline";
+	// regs.style.display = "inline";
+	// var regdump =
+	// 	"<span>tick count: " + emulator.tickCounter + "</span><br>" +
+	// 	"<span>breakpoint: " + breakName + "</span><br>" +
+	// 	"<span onClick=\"cycleNumFormat('pc');\">pc := " +
+	// 	numericFormat(emulator.pc, regNumFormat["pc"]) +
+	// 	getLabel(emulator.pc) + "</span><br>";
 
-	var addr = 0;
-	var cluster_begins = 0;
-	var label = "";
-	var tick_count = 0;
-	var compressed_profile = [];
+	// var addr = 0;
+	// var cluster_begins = 0;
+	// var label = "";
+	// var tick_count = 0;
+	// var compressed_profile = [];
 
-	while(addr < 65536) {
-		while (typeof emulator.profile_data[addr] == "undefined") { addr += 1; if (addr > 65535) break; }
-		if (addr > 65535) break;
-		cluster_begins = addr;
-		tick_count = 0;
-		label = getLabel(addr).split(' ')[1].replace('(', ''). replace(')', '');
+	// while(addr < 65536) {
+	// 	while (typeof emulator.profile_data[addr] == "undefined") { addr += 1; if (addr > 65535) break; }
+	// 	if (addr > 65535) break;
+	// 	cluster_begins = addr;
+	// 	tick_count = 0;
+	// 	label = getLabel(addr).split(' ')[1].replace('(', ''). replace(')', '');
 
-		while(typeof emulator.profile_data[addr] != "undefined" && getLabel(addr).split(' ')[1].replace('(', ''). replace(')', '') == label) {
-			tick_count += emulator.profile_data[addr];
-			addr += 2;
-		}
-		if(addr < 65536) {
-			var instructions = (addr - cluster_begins) / 2;
-			var span = (addr - 2) - cluster_begins;
-			var source = getLabel(cluster_begins).trim();
-			if (span > 0) {
-				source += " +" + span;
-			}
-			compressed_profile.push( {	'begin': cluster_begins,
-																	'end': addr - 2,
-																	'ticks': tick_count,
-																	'calls': emulator.profile_data[cluster_begins],
-																	'percent': 100.0 * (tick_count / emulator.tickCounter),
-																	'source': source
-																});
-		}
-	}
+	// 	while(typeof emulator.profile_data[addr] != "undefined" && getLabel(addr).split(' ')[1].replace('(', ''). replace(')', '') == label) {
+	// 		tick_count += emulator.profile_data[addr];
+	// 		addr += 2;
+	// 	}
+	// 	if(addr < 65536) {
+	// 		var instructions = (addr - cluster_begins) / 2;
+	// 		var span = (addr - 2) - cluster_begins;
+	// 		var source = getLabel(cluster_begins).trim();
+	// 		if (span > 0) {
+	// 			source += " +" + span;
+	// 		}
+	// 		compressed_profile.push( {	'begin': cluster_begins,
+	// 																'end': addr - 2,
+	// 																'ticks': tick_count,
+	// 																'calls': emulator.profile_data[cluster_begins],
+	// 																'percent': 100.0 * (tick_count / emulator.tickCounter),
+	// 																'source': source
+	// 															});
+	// 	}
+	// }
 
-	var sort_criteria = 'percent';
-	compressed_profile.sort(function(a,b) { return (a[sort_criteria] < b[sort_criteria] ? 1 : (a[sort_criteria] > b[sort_criteria] ? -1: 0)); });
+	// var sort_criteria = 'percent';
+	// compressed_profile.sort(function(a,b) { return (a[sort_criteria] < b[sort_criteria] ? 1 : (a[sort_criteria] > b[sort_criteria] ? -1: 0)); });
 
-	regdump += '<br><table class="debugger"><tr> <td>ticks</td> <td>time</td> <td>calls</td> <td>source</td> </tr>\n';
-	var lines = 0;
-	compressed_profile.forEach(function(entry) {
-		lines += 1;
-		if(lines < 20) {
-			regdump += "<tr><td>" + entry.ticks + "</td>";
-			regdump += "<td>" + entry.percent.toFixed(2) + "%</td>";
-			regdump += "<td>" + entry.calls + "</td>";
-			regdump += "<td>" + entry.source + "</td></tr>";
-		}
-	});
-	regdump += "</table>";
-	regdump += '<div style="position: fixed; bottom: 0; width: 100%">Full results:<br>';
-	regdump += '<textarea style="height: 8em; width: 70em; overflow: auto">' + JSON.stringify(compressed_profile) + "</textarea></div>";
-	regs.innerHTML = regdump;
-	emulator.breakpoint = true;
-	curBreakName = breakName;
+	// regdump += '<br><table class="debugger"><tr> <td>ticks</td> <td>time</td> <td>calls</td> <td>source</td> </tr>\n';
+	// var lines = 0;
+	// compressed_profile.forEach(function(entry) {
+	// 	lines += 1;
+	// 	if(lines < 20) {
+	// 		regdump += "<tr><td>" + entry.ticks + "</td>";
+	// 		regdump += "<td>" + entry.percent.toFixed(2) + "%</td>";
+	// 		regdump += "<td>" + entry.calls + "</td>";
+	// 		regdump += "<td>" + entry.source + "</td></tr>";
+	// 	}
+	// });
+	// regdump += "</table>";
+	// regdump += '<div style="position: fixed; bottom: 0; width: 100%">Full results:<br>';
+	// regdump += '<textarea style="height: 8em; width: 70em; overflow: auto">' + JSON.stringify(compressed_profile) + "</textarea></div>";
+	// regs.innerHTML = regdump;
+	// emulator.breakpoint = true;
+	// curBreakName = breakName;
 }
 
 
@@ -991,53 +991,53 @@ function clearBreakpoint() {
 ////////////////////////////////////
 
 function setMaskFormatOverride() {
-	var check = document.getElementById("maskOverride");
-	emulator.maskFormatOverride = check.checked;
+	// var check = document.getElementById("maskOverride");
+	// emulator.maskFormatOverride = check.checked;
 }
 
 function setNumericFormat() {
-	var val = document.getElementById("numericFormat").value;
-	emulator.numericFormatStr = val.length < 1 ? "default"  : val;
+	// var val = document.getElementById("numericFormat").value;
+	// emulator.numericFormatStr = val.length < 1 ? "default"  : val;
 }
 
 function toggleBinaryTools() {
-	var tools = document.getElementById("bintools");
-	document.getElementById("maskOverride").checked = emulator.maskFormatOverride;
-	document.getElementById("numericFormat").value = emulator.numericFormatStr;
-	if (tools.style.display == "none") {
-		tools.style.display = "inline";
-		document.getElementById("options").style.display = "none";
-		document.getElementById("spriteEditor").style.display = "none";
-		document.getElementById("audiotools").style.display = "none";
-	}
-	else {
-		tools.style.display = "none";
-	}
+	// var tools = document.getElementById("bintools");
+	// document.getElementById("maskOverride").checked = emulator.maskFormatOverride;
+	// document.getElementById("numericFormat").value = emulator.numericFormatStr;
+	// if (tools.style.display == "none") {
+	// 	tools.style.display = "inline";
+	// 	document.getElementById("options").style.display = "none";
+	// 	document.getElementById("spriteEditor").style.display = "none";
+	// 	document.getElementById("audiotools").style.display = "none";
+	// }
+	// else {
+	// 	tools.style.display = "none";
+	// }
 }
 
 function decompileFile() {
-	document.getElementById("fileinput").click();
+	// document.getElementById("fileinput").click();
 }
 
 function decompileRequestLoad() {
-	var file = document.getElementById("fileinput").files[0];
-	var reader = new FileReader();
+	// var file = document.getElementById("fileinput").files[0];
+	// var reader = new FileReader();
 
-	function actuallyLoad() {
-		var buff = reader.result;
-		var bytes = new Uint8Array(buff);
-		var disp = "";
-		if (bytes.length > 0) {
-			disp = hexFormat(bytes[0]);
-		}
-		for(var z = 1; z < bytes.length; z++) {
-			disp += ", " + hexFormat(bytes[z]);
-		}
-		document.getElementById("decompileInput").value = "[" + disp + "]";
-	}
+	// function actuallyLoad() {
+	// 	var buff = reader.result;
+	// 	var bytes = new Uint8Array(buff);
+	// 	var disp = "";
+	// 	if (bytes.length > 0) {
+	// 		disp = hexFormat(bytes[0]);
+	// 	}
+	// 	for(var z = 1; z < bytes.length; z++) {
+	// 		disp += ", " + hexFormat(bytes[z]);
+	// 	}
+	// 	document.getElementById("decompileInput").value = "[" + disp + "]";
+	// }
 
-	reader.onload = actuallyLoad;
-	reader.readAsArrayBuffer(file);
+	// reader.onload = actuallyLoad;
+	// reader.readAsArrayBuffer(file);
 }
 
 function getDecompileData() {
@@ -1129,23 +1129,23 @@ function loadExample() {
 }
 
 function listExamples() {
-	var xhr = new XMLHttpRequest();
-	var exampledir = "https://api.github.com/repos/JohnEarnest/Octo/contents/examples";
-	xhr.open("GET", exampledir);
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState != 4 || xhr.status != 200) {
-			return;
-		}
-		var result = JSON.parse(xhr.responseText);
-		for(var index = 0; index < result.length; index++) {
-			var option = document.createElement("option");
-			option.text = result[index]["name"];
-			option.value = result[index]["url"];
-			console.log("OPTION", option)
-			document.getElementById("examples").add(option);
-		}
-	}
-	xhr.send();
+	// var xhr = new XMLHttpRequest();
+	// var exampledir = "https://api.github.com/repos/JohnEarnest/Octo/contents/examples";
+	// xhr.open("GET", exampledir);
+	// xhr.onreadystatechange = function() {
+	// 	if (xhr.readyState != 4 || xhr.status != 200) {
+	// 		return;
+	// 	}
+	// 	var result = JSON.parse(xhr.responseText);
+	// 	for(var index = 0; index < result.length; index++) {
+			// var option = document.createElement("option");
+			// option.text = result[index]["name"];
+			// option.value = result[index]["url"];
+			// console.log("OPTION", option)
+			// document.getElementById("examples").add(option);
+		// }
+	// }
+	// xhr.send();
 }
 
 listExamples();
@@ -1239,44 +1239,44 @@ function blendWaveform(func) {
 }
 
 function generateWaveform() {
-	var canvas = document.getElementById("waveform");
-	var h = canvas.height;
-	var w = canvas.width;
-	var g = canvas.getContext("2d");
-	g.fillStyle = emulator.backgroundColor;
-	g.fillRect(0, 0, canvas.width, canvas.height);
+	// var canvas = document.getElementById("waveform");
+	// var h = canvas.height;
+	// var w = canvas.width;
+	// var g = canvas.getContext("2d");
+	// g.fillStyle = emulator.backgroundColor;
+	// g.fillRect(0, 0, canvas.width, canvas.height);
 
 	// Samples are played at 4000 samples/second.
 	// 128 samples is (1 seconds / 4000 * 128) = .032 seconds.
 	// This also means that a full 128 bit pattern is ~ 2/60ths of a second.
 	// A sine wave at N hz would be given by sin(t * N * 2Pi).
 
-	var frequency = parseInt(document.getElementById("frequency").value);
-	var cutoff    = parseInt(document.getElementById("cutoff").value);
+	// var frequency = parseInt(document.getElementById("frequency").value);
+	// var cutoff    = parseInt(document.getElementById("cutoff").value);
 
-	var word = 0;
-	var index = 0;
+	// var word = 0;
+	// var index = 0;
 
-	for(var z = 0; z < 128; z++) {
-		var t = z * (1 / 4000);                        // time in seconds
-		var v = Math.sin(t * frequency * 2 * Math.PI); // sine wave
-		var s = Math.floor((v + 1) * 128);             // offset and scale
-		// draw some nice waveform displays
-		g.fillStyle = emulator.fillColor2;
-		g.fillRect(z*(w/128), h-(s*(h/256)), (w/128), s*(h/256));
-		if (s >= cutoff) {
-			g.fillStyle = emulator.fillColor;
-			g.fillRect(z*(w/128), h-(cutoff*(h/256)), (w/128), cutoff*(h/256));
-		}
+	// for(var z = 0; z < 128; z++) {
+	// 	var t = z * (1 / 4000);                        // time in seconds
+	// 	var v = Math.sin(t * frequency * 2 * Math.PI); // sine wave
+	// 	var s = Math.floor((v + 1) * 128);             // offset and scale
+	// 	// draw some nice waveform displays
+	// 	g.fillStyle = emulator.fillColor2;
+	// 	g.fillRect(z*(w/128), h-(s*(h/256)), (w/128), s*(h/256));
+	// 	if (s >= cutoff) {
+	// 		g.fillStyle = emulator.fillColor;
+	// 		g.fillRect(z*(w/128), h-(cutoff*(h/256)), (w/128), cutoff*(h/256));
+	// 	}
 
-		// build up a bit vector
-		word = (word << 1) | ((s >= cutoff) ? 1 : 0);
-		if ((z % 8) == 7) {
-			generatedPattern[index++] = word;
-			word = 0;
-		}
-	}
-	document.getElementById("generatedPattern").value = getAudioHex(generatedPattern);
+	// 	// build up a bit vector
+	// 	word = (word << 1) | ((s >= cutoff) ? 1 : 0);
+	// 	if ((z % 8) == 7) {
+	// 		generatedPattern[index++] = word;
+	// 		word = 0;
+	// 	}
+	// }
+	// document.getElementById("generatedPattern").value = getAudioHex(generatedPattern);
 }
 
 function parseAudio(id) {
@@ -1329,18 +1329,18 @@ function editAudioHex(id)
 }
 
 function drawAudio() {
-	var canvas = document.getElementById("drawAudio");
-	var render = canvas.getContext("2d");
-	render.fillStyle = emulator.backgroundColor;
-	render.fillRect(0, 0, canvas.width, canvas.height);
-	render.fillStyle = emulator.fillColor;
+	// var canvas = document.getElementById("drawAudio");
+	// var render = canvas.getContext("2d");
+	// render.fillStyle = emulator.backgroundColor;
+	// render.fillRect(0, 0, canvas.width, canvas.height);
+	// render.fillStyle = emulator.fillColor;
 
-	for(var z = 0; z < 8 * 16; z++) {
-		var a = Math.floor(z / 8);
-		var b = 7 - Math.floor(z % 8);
-		if (((audioPattern[a] >> b) & 1) == 0) { continue; }
-		render.fillRect(z * 2, 0, 2, 32);
-	}
+	// for(var z = 0; z < 8 * 16; z++) {
+	// 	var a = Math.floor(z / 8);
+	// 	var b = 7 - Math.floor(z % 8);
+	// 	if (((audioPattern[a] >> b) & 1) == 0) { continue; }
+	// 	render.fillRect(z * 2, 0, 2, 32);
+	// }
 }
 
 function playAudio() {
@@ -1399,20 +1399,20 @@ var blendPattern = [];
 var generatedPattern = [];
 
 function InitializeAudioEditor() {
-	for(var z = 0; z < 16; z++) {
-		audioPattern[z] = 0;
-		blendPattern[z] = 0;
-	}
-	generateWaveform();
-	document.getElementById("audioPattern").value 	  =	getAudioHex(audioPattern);
-	document.getElementById("blendPattern").value     =	getAudioHex(blendPattern);
-	drawAudio();
+	// for(var z = 0; z < 16; z++) {
+	// 	audioPattern[z] = 0;
+	// 	blendPattern[z] = 0;
+	// }
+	// generateWaveform();
+	// document.getElementById("audioPattern").value 	  =	getAudioHex(audioPattern);
+	// document.getElementById("blendPattern").value     =	getAudioHex(blendPattern);
+	// drawAudio();
 }
-InitializeAudioEditor();
+// InitializeAudioEditor();
 
-var audioCanvas = document.getElementById("drawAudio");
-audioCanvas.addEventListener("mousemove", dragAudio, false);
-audioCanvas.addEventListener("mousedown", pressDrawAudio, false);
-audioCanvas.addEventListener("mouseup"  , releaseAudio, false);
-audioCanvas.oncontextmenu = function(event) { dragAudio(event); return false; };
-audioCanvas.addEventListener("mouseout", releaseAudio, false);
+// var audioCanvas = document.getElementById("drawAudio");
+// audioCanvas.addEventListener("mousemove", dragAudio, false);
+// audioCanvas.addEventListener("mousedown", pressDrawAudio, false);
+// audioCanvas.addEventListener("mouseup"  , releaseAudio, false);
+// audioCanvas.oncontextmenu = function(event) { dragAudio(event); return false; };
+// audioCanvas.addEventListener("mouseout", releaseAudio, false);
