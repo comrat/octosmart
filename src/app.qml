@@ -4,6 +4,8 @@ Rectangle {
 
 	ColorTheme { id: colorTheme; }
 
+	Protocol { id: protocol; }
+
 	PageStack {
 		width: 100%;
 		height: 100%;
