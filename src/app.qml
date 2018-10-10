@@ -30,13 +30,5 @@ Rectangle {
 		onBackPressed: { this.parent.closeApp() }
 	}
 
-	closeApp: {
-		switch (_globals._context.system.os) {
-			case 'tizen': window.tizen.application.getCurrentApplication().exit(); break
-			case 'webOS': window.webOS.platformBack(); break
-			case 'netcast': window.NetCastBack(); break
-			case 'android': navigator.app.exitApp(); break
-			default: log("Connot close app on", _globals._context.system.os); break
-		}
-	}
+	closeApp: { _globals.closeApp() }
 }
