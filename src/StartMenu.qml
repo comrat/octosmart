@@ -39,7 +39,13 @@ Item {
 			x: 2;
 
 			onSelected(app): { startMenuProto.selected(app) }
-			onOpenHelp(manual): { menuHelpPage.show(manual) }
+
+			onOpenHelp(app): {
+				var protocol = this._context._local.protocol
+				protocol.getManual(app, function(manual) {
+					menuHelpPage.show(manual)
+				})
+			}
 		}
 
 		AknowladgePage {

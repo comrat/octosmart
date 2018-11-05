@@ -2,6 +2,10 @@ Request {
 	signal error;
 	property string baseUrl: "http://aapobeis.beget.tech";
 
+	getManual(game, callback): {
+		this.call("/games/" + game + "/manual", callback)
+	}
+
 	getGames(callback): {
 		this.call("/games", callback)
 	}

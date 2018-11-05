@@ -57,7 +57,7 @@ Item {
 		height: 100%;
 
 		onPlay: { gameList.select(gameList.currentIndex) }
-		onOpenHelp: { gamesPageProto.openHelp(gameList.model.get(gameList.currentIndex).manual) }
+		onOpenHelp: { gamesPageProto.openHelp(gameList.model.get(gameList.currentIndex).id) }
 		onLeftPressed: { gameList.setFocus() }
 	}
 
@@ -71,6 +71,7 @@ Item {
 			for (var i in games) {
 				games[i].screenshot = protocol.baseUrl + games[i].screenshot
 				games[i].file = protocol.baseUrl + games[i].file
+				games[i].id = i
 				result.push(games[i])
 			}
 			gameList.model.clear()
