@@ -18,27 +18,20 @@ Rectangle {
 		onBackPressed: { this.parent.hide() }
 	}
 
-	Loader {
-		id: loader;
+	Text {
+		id: helpViewText;
 		x: 5%;
 		y: 10%;
 		width: 90%;
 		height: 90%;
-		clip: true;
-
-		onLoaded: {
-			if (this.item)
-				this.anchors.fill = this.item
-			this.anchors.top = this.parent.top;
-			this.anchors.left = this.parent.left;
-			this.anchors.right = this.parent.right;
-		}
+		font.pixelSize: 32;
+		horizontalAlignment: Text.AlignHCenter;
+		color: "#fff";
 	}
 
-	show(url): {
-		log("Show help", url)
+	show(text): {
 		this.visible = true
-		loader.source = url
+		helpViewText.text = text
 		closeButton.setFocus()
 	}
 
