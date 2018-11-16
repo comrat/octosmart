@@ -5,6 +5,18 @@ Rectangle {
 	color: colorTheme.backgroundColor;
 	visible: false;
 
+	Text {
+		id: helpViewText;
+		x: 5%;
+		y: 10%;
+		width: 90%;
+		height: 90%;
+		font.pixelSize: 32;
+		horizontalAlignment: Text.AlignHCenter;
+		color: "#fff";
+		text: "";
+	}
+
 	OctoButton {
 		id: closeButton;
 		y: 90%;
@@ -16,17 +28,6 @@ Rectangle {
 
 		onPressed: { this.parent.hide() }
 		onBackPressed: { this.parent.hide() }
-	}
-
-	Text {
-		id: helpViewText;
-		x: 5%;
-		y: 10%;
-		width: 90%;
-		height: 90%;
-		font.pixelSize: 32;
-		horizontalAlignment: Text.AlignHCenter;
-		color: "#fff";
 	}
 
 	show(text): {
