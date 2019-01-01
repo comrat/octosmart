@@ -5,16 +5,27 @@ Rectangle {
 	color: colorTheme.backgroundColor;
 	visible: false;
 
-	Text {
-		id: helpViewText;
+	Item {
+		id: detailedContainer;
 		x: 5%;
-		y: 10%;
+		y: 5%;
 		width: 90%;
-		height: 90%;
-		font.pixelSize: 32;
-		horizontalAlignment: Text.AlignHCenter;
-		color: "#fff";
-		text: "";
+		height: 80%;
+		clip: true;
+
+		Text {
+			id: helpViewText;
+			property int shift;
+			anchors.left: parent.left;
+			anchors.right: parent.right;
+			transform.translateY: shift;
+			horizontalAlignment: Text.AlignHCenter;
+			font.pixelSize: 32;
+			color: "#fff";
+			wrapMode: Text.WordWrap;
+
+			Behavior on transform { Animation { duration: 200; easing: "ease-out"; } }
+		}
 	}
 
 	OctoButton {
@@ -39,4 +50,17 @@ Rectangle {
 	hide: {
 		this.visible = false
 	}
+
+	moveUp: {
+		if (helpViewText.height > detailedContainer.height)
+			helpViewText.shift = helpViewText.shift + 50 < 0 ? helpViewText.shift + 50 : 0
+	}
+
+	moveDown: {
+		if (helpViewText.height > detailedContainer.height)
+			helpViewText.shift = helpViewText.shift - 50 > detailedContainer.height / 2 - helpViewText.height ? helpViewText.shift - 50 : (detailedContainer.height / 2 - helpViewText.height)
+	}
+
+	onUpPressed: { this.moveUp() }
+	onDownPressed: { this.moveDown() }
 }
