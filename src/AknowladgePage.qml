@@ -3,6 +3,8 @@ Column {
 	height: 100%;
 	spacing: 10;
 
+	ListModel { id: aknowladgeModel; }
+
 	Text {
 		width: 100%;
 		horizontalAlignment: Text.AlignHCenter;
@@ -25,17 +27,7 @@ Column {
 		x: 30%;
 		width: 50%;
 		height: contentHeight;
-		model: ListModel {
-			ListElement { authors: "AKouZ1"; game: "2048-Game"; }
-			ListElement { authors: "Tann"; game: "Civiliz8n"; }
-			ListElement { authors: "SysL"; game: "DVN8"; }
-			ListElement { authors: "whoozle, gazay"; game: "Kesha was bird"; }
-			ListElement { authors: "whoozle, gazay"; game: "Kesha was biird"; }
-			ListElement { authors: "whoozle, gazay"; game: "Kesha was ninja"; }
-			ListElement { authors: "Mastigophoran"; game: "octopeg"; }
-			ListElement { authors: "jackiekircher, Tann"; game: "Skyward"; }
-			ListElement { authors: "your name here"; game: "t8nks"; }
-		}
+		model: aknowladgeModel;
 		delegate: Item {
 			width: 100%;
 			height: gameText.height;
@@ -54,5 +46,17 @@ Column {
 				color: colorTheme.textColor;
 			}
 		}
+	}
+
+	onCompleted:{
+		aknowladgeModel.clear()
+		var protocol = this._context._local.protocol
+		protocol.getGames(function(data) {
+			var games = data.games
+			var result = []
+			for (var i in games)
+				result.push({ authors: games[i].authors, game: games[i].title })
+			aknowladgeModel.append(result)
+		})
 	}
 }
