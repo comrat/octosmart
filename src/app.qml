@@ -22,7 +22,6 @@ Rectangle {
 			id: emulatorPage;
 
 			onClose: { this.parent.showMenu() }
-			onBackPressed: { this.parent.showMenu() }
 		}
 
 		showMenu: { this.currentIndex = 0 }

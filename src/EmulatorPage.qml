@@ -99,6 +99,11 @@ Rectangle {
 			resource.url = app.file
 	}
 
+	onBackPressed: {
+		this.close()
+		return true
+	}
+
 	onRecursiveVisibleChanged: {
 		if (!value)
 			keyList.model.clear()
