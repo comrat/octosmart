@@ -15,7 +15,7 @@ To build the app locally just call PureQML build script:
 `
 The result files will be in `build.<PLATFORM>` folder where platform can be:
 
-`web|webos|tizen|androidtv`
+`web|webos|netcast|tizen|androidtv`
 
 If you want to run it on TV you can use [SmartTV deployer](https://github.com/comrat/smart-tv-deployer) which is added in project as submodule:
 For examples to run it on WebOS TV with name "MyTV" use this command:
