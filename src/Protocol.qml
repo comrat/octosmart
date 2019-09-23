@@ -15,7 +15,7 @@ Request {
 	}
 
 	callImpl(name, callback, error, method, data): {
-		var headers = { "Accept-Language": this.acceptLanguage || "en" }
+		var headers = { }
 		if (data)
 			headers["Content-Type"] = "application/json"
 
