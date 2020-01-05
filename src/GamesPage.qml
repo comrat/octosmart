@@ -15,27 +15,7 @@ Item {
 		keyNavigationWraps: false;
 		focus: true;
 		model: ListModel { }
-		delegate: WebItem {
-			width: 100%;
-			height: 50;
-			border.width: activeFocus ? 2 : 0;
-			border.color: colorTheme.accentPanelColor;
-			border.type: Border.Outer;
-
-			FocusOnHoverMixin { }
-
-			Text {
-				width: 100%;
-				height: 100%;
-				verticalAlignment: Text.AlignVCenter;
-				horizontalAlignment: Text.AlignHCenter;
-				text: model.title;
-				color: colorTheme.accentTextColor;
-				font.pixelSize: 27;
-			}
-
-			onClicked: { info.play() }
-		}
+		delegate: GameRowDelegate { onClicked: { info.play() } }
 
 		updateCurrentAppInfo: {
 			if (this.currentIndex >= 0 && this.currentIndex < this.count)
@@ -77,5 +57,6 @@ Item {
 			gameList.model.clear()
 			gameList.model.append(result)
 		})
+		gameList.setFocus()
 	}
 }

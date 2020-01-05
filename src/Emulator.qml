@@ -1,7 +1,6 @@
 Item {
 	width: height * 2;
 	height: 512;
-	focus: true;
 
 	Item {
 		width: 100%;

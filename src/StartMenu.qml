@@ -62,13 +62,13 @@ Item {
 		y: 20%;
 		width: 10%;
 		height: 80%;
-		focus: true;
 		keyNavigationWraps: false;
+		focus: true;
+		delegate: MenuDelegate { }
 		model: ListModel {
 			ListElement { menu: "games"; icon: "games.png"; }
 			ListElement { menu: "help"; icon: "acknowledge.png"; }
 		}
-		delegate: MenuDelegate { }
 
 		onCurrentIndexChanged: { appPages.currentIndex = value }
 
