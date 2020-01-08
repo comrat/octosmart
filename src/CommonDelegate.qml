@@ -4,4 +4,6 @@ WebItem {
 	border.width: 2;
 	border.color: activeFocus ? colorTheme.accentPanelColor : "#0000";
 	border.type: Border.Outer;
+
+	FocusOnHoverMixin { }
 }
