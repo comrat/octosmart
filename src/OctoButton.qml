@@ -1,4 +1,4 @@
-CommonDelegate {
+FocusablePanel {
 	signal pressed;
 	property string text;
 

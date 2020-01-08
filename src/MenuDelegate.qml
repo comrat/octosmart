@@ -1,4 +1,4 @@
-CommonDelegate {
+FocusablePanel {
 	height: width;
 	color: focused ? colorTheme.panelColor : "#0000";
 	opacity: focused ? 1.0 : 0.5;

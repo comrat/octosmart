@@ -1,4 +1,4 @@
-CommonDelegate {
+FocusablePanel {
 	Text {
 		width: 100%;
 		height: 100%;
