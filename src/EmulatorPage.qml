@@ -4,6 +4,7 @@ Rectangle {
 	property string startKey;
 	width: 100%;
 	height: 100%;
+	focus: true;
 
 	Emulator {
 		id: emulator;
